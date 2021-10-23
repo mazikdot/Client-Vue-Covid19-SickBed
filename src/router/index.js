@@ -7,6 +7,7 @@ import NotFound from '../views/jobs/NotFound.vue'
 import Register from '../components/Register.vue'
 import RegisterPage from '../views/RegisterPage.vue'
 import Login from '../views/Login.vue'
+import HomePage from '../views/HomePage.vue'
 const routes = [
   {
     path: '/',
@@ -28,6 +29,12 @@ const routes = [
     name: 'Jobs',
     component: Jobs
   },
+  {
+    path: '/HomePage',
+    name: 'HomePage',
+    component: HomePage
+  },
+  
   {
     path: '/service',
     id: '#service'
@@ -64,6 +71,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
+  mode: 'history',
   routes
 })
 

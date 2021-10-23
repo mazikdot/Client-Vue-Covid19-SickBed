@@ -125,8 +125,8 @@ import '../assets/css/jquery.fancybox.css';
 import '../assets/css/animate.css';
 import '../assets/js/alert/alert.js'
 // import '../axios.js'
-import axios from 'axios';
-axios.defaults.baseURL ='http://localhost:3000/'
+// import axios from 'axios';
+// axios.defaults.baseURL ='http://localhost:3000/'
 export default {
     name: 'Register',
     data() {
@@ -166,7 +166,7 @@ export default {
       },
      
        fetchAmphures : function(){
-          axios.put("ReadAmphures",{
+          axios.put("http://localhost:3000/ReadAmphures",{
               province_id: this.select_province
           }).then((response) =>{
           this.amphures_data = response.data.data;
@@ -177,7 +177,7 @@ export default {
       },
     
        fetchDistricts : function(){
-          axios.put("ReadDistrict",{
+          axios.put("http://localhost:3000/ReadDistrict",{
                 amphure_id: this.select_amphures
           }).then((response) =>{
            this.districts_data = response.data.data;
@@ -187,21 +187,21 @@ export default {
           })
       },
        fetchPrefix : function(){
-          axios.get("Prefix").then((response) =>{
+          axios.get("http://localhost:3000/Prefix").then((response) =>{
           this.prefix_test = []
           this.prefix_test = response.data.data;
       //    console.log(this.prefix_test);
           })
       },
        fetchSex : function(){
-          axios.get("Sex").then((response) =>{
+          axios.get("http://localhost:3000/Sex").then((response) =>{
          // this.prefix_test = []
           this.sex_data = response.data.data;
           //console.log(this.prefix_test);
           })
       },
       submitData() {
-            axios.post("registers", {
+            axios.post("http://localhost:3000/registers", {
               user_username: this.user_username,
               user_passwords: this.user_passwords,
               user_passwords_conf: this.user_passwords_conf,
@@ -218,7 +218,8 @@ export default {
             
               if (res.data.message == 'สมัครบัญชีผู้ใช้สำเร็จ') {
                 swal(res.data.message, "Insert Success fully", "success").then(function() {
-                //window.location.assign('Login');
+                window.location.assign('Login');
+                //  this.$router.push('login');
                 //  this.$router.push({ path : 'Login'});
                 //   this.$router.push({ name : 'Home'});
                 });
