@@ -154,7 +154,7 @@ export default {
     methods: {
      
         fetchProvince : function(){
-          axios.get("ReadProvince").then((response) =>{
+          axios.get("http://localhost:3000/ReadProvince").then((response) =>{
          // this.prefix_test = []
           this.province_data = response.data.data;
           this.select_amphures = '';
@@ -225,7 +225,7 @@ export default {
                 });
               } else if (res.data.message == 'โปรดลองอีกครั้งบัญชีนี้มีผู้ใช้แล้ว') {
                 swal(res.data.message, 'กรุณาลองอีกครั้ง', 'error').then(function() {
-
+                   this.$router.push('Login')
                 });
               } else if (res.data.message == 'รหัสผ่านไม่น้อยกว่า 6 ตัวอักษร') {
                 swal(res.data.message, 'กรุณาลองอีกครั้ง', 'warning').then(function() {});

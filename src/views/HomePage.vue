@@ -1,6 +1,6 @@
 <template>
     <h1 v-if="user">Hi, {{user.data.user_username}}</h1>
-    <h1 v-if="!user">You Not login</h1>
+    <h1 v-if="!user">อย่าพยายาามแปลง Token</h1>
 </template>
 
 <script>
@@ -14,27 +14,18 @@ export default {
         }
     },
     async created(){
+    if(localStorage.getItem('token')){
         const response = await axios.get('http://localhost:3001/api/get-user',{
             headers: {
                 Authorization : 'Bearer '+localStorage.getItem('token')
-                
             }
-        
         });
-        if(!response.data){
-           //  window.location.assign('/Login');
-             console.log("no Token");
+        this.user = response.data
         }
         else
         {
-        this.user = response.data
-        console.log(response.data);
+            this.$router.push('Login')
         }
-       
-        // if(response.data.user_username){
-        //      window.location.assign('Login');
-        // }
-        // console.log('Bearer ' + localStorage.getItem('token'))
     }
 }
 </script>
