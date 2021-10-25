@@ -57,6 +57,7 @@ export default {
           });
          console.log(response.data.token)
          localStorage.setItem('token',response.data.token);
+         this.$router.push('Sickbed');
         }
     }
     

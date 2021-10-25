@@ -1,9 +1,5 @@
 <template>
     <section class="showcase">
-    <header>
-      <!-- <h2 class="logo">เตียงผู้ป่วย</h2> -->
-      <!-- <div class="toggle"></div> -->
-    </header>
     <video src="../assets/video/video-2.mp4" muted loop autoplay></video>
     <div class="overlay"></div>
     <div class="center">

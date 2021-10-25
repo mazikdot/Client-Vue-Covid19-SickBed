@@ -1,6 +1,6 @@
 <template>
     <h1 v-if="user">Hi, {{user.data.user_username}}</h1>
-    <h1 v-if="!user">อย่าพยายาามแปลง Token</h1>
+    <h1 v-if="!user">{{message}}</h1>
 </template>
 
 <script>
@@ -10,7 +10,8 @@ export default {
     name : 'HomePage',
     data(){
         return {
-            user: ''
+            user: '',
+            message: 'invalid token'
         }
     },
     async created(){
@@ -24,8 +25,11 @@ export default {
         }
         else
         {
-            this.$router.push('Login')
+            this.$router.push('Login');
         }
+
+        //ถ้ามีเวลาปรับฟังก์ชั่นใหม่ ใช้ arrow function และปรับฝั่ง Server เมื่อเจอ token ที่ปลอม ให้มัน this.$router.push ไปหน้า Login
     }
+   
 }
 </script>

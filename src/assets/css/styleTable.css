@@ -1,0 +1,334 @@
+/* body {
+    color: #566787;
+    background: #d3c6c6;
+    font-family: Arial, Helvetica, sans-serif;
+} */
+.table-wrapper {
+    width: 850px;
+    background: #fff;
+    padding: 20px 30px 5px;
+    margin: 30px auto;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.7);
+}
+.table-wrapper .btn-group {
+    float: right;
+}
+.table-title .btn {
+    min-width: 50px;
+    border-radius: 1px;
+    border: none;
+    padding: 6px 12px;
+    font-size: 95%;
+    outline: none !important;
+    height: 30px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.7);
+}
+.table-title {
+    border-bottom: 1px solid #e9e9e9;
+    padding-bottom: 15px;
+    background: #ED5441;
+    margin: -20px -31px 10px;
+    padding: 15px 30px;
+    color: #fff;
+}
+.table-title h2 {
+    margin: 2px 0 0;
+    font-size: 24px;
+}
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+table.table tr th:first-child {
+    width: 40px;
+}
+table.table tr th:last-child {
+    width: 100px;
+}
+table.table-striped tbody tr:nth-last-of-type(odd) {
+    background-color: #fcfcfc;
+}
+table.table-striped.table-hover tbody tr:hover {
+    background: #f5f5f5;
+}
+table.table td a {
+    color: #2196f3;
+}
+table.table td .btn.manage {
+    padding: 2px 10px;
+    background: #37BC98;
+    color: #fff;
+    border-radius: 1px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.7);
+}
+table.table td .btn.manage:hover {
+    background: #2e9c81;
+}
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 710px) {
+    table {
+      border: 0;
+    }
+    .table-wrapper{
+        width:100%;
+    }
+    table caption {
+      font-size: 1.3em;
+    }
+    
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+    
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
+  @media screen and (max-width: 960px) {
+    .table-wrapper{
+        width:100%;
+    }
+    .navbar-nav{
+        /* display:flex; */
+        margin-top: 10px;
+    }
+    
+  }
+  @media screen and (max-width: 684px) {
+    .table-wrapper{
+        width:100%;
+    }
+    .navbar-nav{
+        /* display:flex; */
+        margin-top: 10px;
+    }
+    
+  }
+  @media screen and (min-width: 450px){
+    .fontsizebed{
+      font-size: 10px;
+    }
+  }
+  @media screen and (min-width: 738px){
+    header{
+      width: 100%;
+    }
+  }
+  @media screen and (min-width: 1500px){
+    header{
+      width: 100%;
+    }
+  }
+  /* .bg{
+    background-image: url('../img/m.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+  } */
+  @media screen and (max-width: 738px){
+    .bg{
+      background:ghostwhite;
+    }
+  }
+  /* .bg2{
+    background-image: url('../img/insert3.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+  } */
+  #card-input{
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+    margin-right: 85px;
+    margin-top: 30px;
+  }
+  @media screen and (max-width: 760px) {
+   #card-input{
+     margin-left: 10%;
+     width:90%;
+   }
+   header{
+    width: 100%;
+  }
+  }
+  @media screen and (max-width: 600px) {
+   #card-input{
+     margin-left: 10%;
+     width:90%;
+   }
+   header{
+    width: 100%;
+  }
+  }
+  @media screen and (max-width: 454px) {
+    #card-input{
+      margin-left: 40px;
+      width:90%;
+    }
+    header{
+      width: 100%;
+    }
+   }
+   @media screen and (max-width: 376px) {
+    #card-input{
+      margin-left: 20px;
+      width:80%;
+    }
+    header{
+      width: 100%;
+    }
+    .card{
+      width: 140%;
+    }
+   }
+   @media screen and (max-width:820 px){
+     header{
+       width:100%;
+     }
+     #card-input{
+      margin-left: 20px;
+      width:90%;
+    }
+   }
+   @media screen and (min-width: 820px){
+     header{
+       width:100%;
+     }
+   }
+   #barichak{
+    margin-left:30%;
+    /* margin-top:10%; */
+    margin-bottom: 20%;
+    border-style: groove;
+    border-color: #0000FF;
+    padding:10px;
+   }
+   @media screen and (max-width: 600px){
+     #barichak{
+      margin-left:3%; margin-top:3%;
+      margin-bottom: 10%;
+      border-style: groove;
+     }
+   }
+  
+  /* @media screen and (max-width: 738px){
+    .bg2{
+      background:ghostwhite;
+    }
+  }
+ .section_insert{
+    margin: auto;
+    width: 80%;
+    border: 3px solid black;
+    padding: 10px;
+ }
+ @media screen and (max-width: 861px){
+  .section_insert{
+    width: 100%;
+ }
+     header{
+   width: 100%;
+    }
+ } 
+ @media screen and (max-width: 430px){
+  .section_insert{
+    width: 170%;
+ }
+     header{
+   width: 100%;
+    }
+ } 
+ @media screen and (max-width: 590px){
+  .section_insert{
+    width: 150%;
+ }
+     header{
+   width: 100%;
+    }
+ } 
+ @media screen and (max-width: 737px){
+  .section_insert{
+    width: 130%;
+ }
+     header{
+   width: 100%;
+    }
+ }   */
+/* Extra small devices (phones, 600px and down) */
+/* @media only screen and (max-width: 600px) { ... } */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) { ... } */
+
+/* Medium devices (landscrape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) { ... } */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) { ... } */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) { ... } */

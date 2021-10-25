@@ -8,6 +8,7 @@ import Register from '../components/Register.vue'
 import RegisterPage from '../views/RegisterPage.vue'
 import Login from '../views/Login.vue'
 import HomePage from '../views/HomePage.vue'
+import Sickbed from '../views/Sickbed.vue'
 const routes = [
   {
     path: '/',
@@ -28,6 +29,11 @@ const routes = [
     path: '/Jobs',
     name: 'Jobs',
     component: Jobs
+  },
+  {
+    path: '/Sickbed',
+    name: 'Sickbed',
+    component: Sickbed
   },
   {
     path: '/HomePage',

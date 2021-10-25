@@ -34,11 +34,16 @@
                   >เข้าสู่ระบบ</router-link
                 >
               </li>
-              <li>
+              <!-- <li>
                 <router-link style="color: red;" class="scroll-link" to="/HomePage"
                   >เทส JWT</router-link
                 >
               </li>
+              <li>
+                <router-link style="color: red;" class="scroll-link" to="/Sickbed"
+                  >ค้นหาเตียงผู้ป่วย</router-link
+                >
+              </li> -->
             </ul>
           </div>
         </nav>

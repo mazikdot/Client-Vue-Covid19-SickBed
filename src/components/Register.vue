@@ -98,7 +98,8 @@
                             <div class="input-field col s12">
                               <!-- <button type="submit" name="add" onclick="return valid();" id="add" class="waves-effect waves-light btn indigo m-b-xs">ADD</button> -->
                               <input type="button" value="สมัครบัญชี" class="waves-effect waves-light btn indigo m-b-xs" @click="submitData()">
-                              <a href="login.php" style="color:FFFFFF;" class="waves-effect waves-light btn indigo2 m-b-xs">เข้าสู่ระบบ</a>
+                              <!-- <a href="login.php" style="color:FFFFFF;" class="waves-effect waves-light btn indigo2 m-b-xs">เข้าสู่ระบบ</a> -->
+                              <router-link class="waves-effect waves-light btn indigo2 m-b-xs" style="margin-left: 10px;" to="/Login">เข้าสู่ระบบ</router-link>
                             </div>
 
                           </div>
@@ -217,12 +218,11 @@ export default {
             }).then(res => {
             
               if (res.data.message == 'สมัครบัญชีผู้ใช้สำเร็จ') {
-                swal(res.data.message, "Insert Success fully", "success").then(function() {
-                window.location.assign('Login');
-                //  this.$router.push('login');
-                //  this.$router.push({ path : 'Login'});
-                //   this.$router.push({ name : 'Home'});
-                });
+              const alert = async() =>{
+                await swal(res.data.message, "Insert Success fully", "success");
+                await this.$router.push('login');
+                }
+              alert();
               } else if (res.data.message == 'โปรดลองอีกครั้งบัญชีนี้มีผู้ใช้แล้ว') {
                 swal(res.data.message, 'กรุณาลองอีกครั้ง', 'error').then(function() {
                    this.$router.push('Login')
