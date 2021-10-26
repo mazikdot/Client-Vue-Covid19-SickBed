@@ -56,7 +56,7 @@ export default {
               user_passwords: this.user_passwords
           });
          localStorage.setItem('token',response.data.token);
-         console.log(response.data.token)
+        //  console.log(response.data.token)
          if(response.data.token){
             // this.$router.push('Sickbed');
             window.location.assign('Sickbed')
