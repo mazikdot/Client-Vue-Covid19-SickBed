@@ -10,7 +10,7 @@
 	    <div id="main-nav" class="collapse navbar-collapse navStyle">
 			<ul class="nav navbar-nav" id="mainNav">
             <li><router-link  class="scroll-link" to="/Sickbed">ค้นหาเตียงผู้ป่วย</router-link></li>
-            <li><router-link class="scroll-link" to="/Sickbed">บริจาคเตียงผู้ป่วย</router-link></li>
+            <li><router-link class="scroll-link" to="/AddSickbed">บริจาคเตียงผู้ป่วย</router-link></li>
             <li><router-link class="scroll-link" to="/Sickbed">สถานการณ์เตียงผู้ป่วย</router-link></li>
             <li><router-link class="scroll-link" to="/Sickbed">ยอดการติด Covid-19</router-link></li>
             <li><a href="javascript:void(0)" class="scroll-link" @click="logout()" style="color:red;">ออกจากระบบ</a></li>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'HeaderSickbed',
     methods:{
@@ -39,3 +40,7 @@ export default {
 }
 // console.log(user)
 </script>
+
+<style scoped>
+
+</style>
