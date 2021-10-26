@@ -56,9 +56,15 @@ export default {
               user_passwords: this.user_passwords
           });
          localStorage.setItem('token',response.data.token);
+         console.log(response.data.token)
          if(response.data.token){
-            this.$router.push('Sickbed');
+            // this.$router.push('Sickbed');
+            window.location.assign('Sickbed')
          } 
+         else {
+              swal("โปรดลองอีกครั้ง", "บัญชีผู้ใช้หรือรหัสผ่านของท่านผิด", "error");
+         }
+        //  console.log(response)
         }
     }
 }
