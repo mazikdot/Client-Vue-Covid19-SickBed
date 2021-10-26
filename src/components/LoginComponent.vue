@@ -55,12 +55,12 @@ export default {
               user_username: this.user_username,
               user_passwords: this.user_passwords
           });
-         console.log(response.data.token)
          localStorage.setItem('token',response.data.token);
-         this.$router.push('Sickbed');
+         if(response.data.token){
+            this.$router.push('Sickbed');
+         } 
         }
     }
-    
 }
 </script>
 

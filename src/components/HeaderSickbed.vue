@@ -13,17 +13,13 @@
             <li><router-link class="scroll-link" to="/Sickbed">บริจาคเตียงผู้ป่วย</router-link></li>
             <li><router-link class="scroll-link" to="/Sickbed">สถานการณ์เตียงผู้ป่วย</router-link></li>
             <li><router-link class="scroll-link" to="/Sickbed">ยอดการติด Covid-19</router-link></li>
-            <li><router-link class="scroll-link" style="color:tomato" to="/Sickbed">ออกจากระบบ</router-link></li>
-            <!-- <li  class="scroll-link">บัญชีผู้ใช้ : {{user.data.user_username}} </li> -->
-			  <!-- <li><a href="/Home" style="color:tomato" class="scroll-link">ค้นหาเตียงผู้ป่วย</a></li>
-
-			  <li><a href="/Add-SickBed" class="scroll-link">บริจาคเตียงผู้ป่วย</a></li>
-			  <li><a href="#contact" class="scroll-link">สถานการณ์เตียงผู้ป่วย</a></li>
-			  <li><a href="login/register.php" class="scroll-link">ยอดการติด Covid - 19</a></li>
-			  <li><a style="color:blue;" href="/logout" class="scroll-link">ออกจากระบบ<br>        
-            </a></li> -->
-			</ul>
+            <li><a href="javascript:void(0)" class="scroll-link" @click="logout()" style="color:red;">ออกจากระบบ</a></li>
+            <!-- <li  class="scroll-link">{{user}}ss</li> -->
+            <!-- <li><router-view :user="user"/></li> -->
+            
+    			</ul>
       </div>
+      <!-- <h1>{{user}}</h1> -->
 	 </nav>
     </div>
   </div>
@@ -32,6 +28,14 @@
 
 <script>
 export default {
-    name: 'HeaderSickbed'
+    name: 'HeaderSickbed',
+    methods:{
+      logout(){
+          // console.log("logout");
+          localStorage.removeItem('token');
+          this.$router.push('Login');
+      }
+    }
 }
+// console.log(user)
 </script>

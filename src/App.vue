@@ -1,32 +1,33 @@
 <template>
-    <!-- <Header/> -->
-    <!-- <router-link to="/">Home</router-link> | -->
-    <!-- <router-link to="/Jobs">Jobs</router-link> | -->
-    <!-- <router-link to="/about">About</router-link> -->
-    <!-- <router-link :to="{name : 'About'}">About</router-link> -->
-    <!-- <router-link :to="{name : 'Jobs'}">Jobs</router-link> -->
-  
-  <!-- <button @click="redirect">Redirect</button>
-  <button @click="back">Go back</button>
-  <button @click="forward">Go forward</button> -->
-  <router-view/>
+  <router-view :user="user"/>
+  <!-- <router-view :user="user"></router-view> -->
 </template>
 <script>
 // import Header  from "../src/components/Header";
 export default {
   components: {
+
   },
-  methods:{
-    redirect(){
-      this.$router.push({ name : 'Home'})
+   data(){
+        return {
+            user: '',
+            message: 'invalid token'
+        }
     },
-    back(){
-      this.$router.go(-1)
-    },
-    forward(){
-      this.$router.go(1)
+    async created(){
+    if(localStorage.getItem('token')){
+        const response = await axios.get('http://localhost:3001/api/get-user',{
+            headers: {
+                Authorization : 'Bearer '+localStorage.getItem('token')
+            }
+        });
+        this.user = response.data
+        }
+        // else
+        // {
+        //     this.$router.push('/');
+        // }
     }
-  }
 }
 </script>
 <style>

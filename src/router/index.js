@@ -5,6 +5,7 @@ import Jobs from '../views/jobs/Jobs.vue'
 import JobDetails from '../views/jobs/JobDetails.vue'
 import NotFound from '../views/jobs/NotFound.vue'
 import Register from '../components/Register.vue'
+import test from '../components/test.vue'
 import RegisterPage from '../views/RegisterPage.vue'
 import Login from '../views/Login.vue'
 import HomePage from '../views/HomePage.vue'
@@ -19,6 +20,11 @@ const routes = [
     path: '/Login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: test
   },
   {
     path: '/about',
