@@ -1,6 +1,6 @@
 <template>
     <div  id = "sickbed" v-cloak >
-<div class="table-wrapper" v-cloak>
+<div class="table-wrapper" v-cloak >
         <div class="table-title" v-cloak >
             <div class="row" v-cloak>
                 <div class="col-sm-9"><h2  class ="fontsizebed" style="margin-left:200px ; font-size:20px;  color:black;"><b></b> <b>ค้นหาเตียงผู้ป่วย <br> </b></h2>
@@ -15,7 +15,7 @@
             </div>
         </div>
         <!-- <%= getdata %> -->
-        <table v-cloak class="table table-striped table-hover" id ="userTable" >
+        <table v-cloak class="table table-striped table-hover" id ="userTable"  >
             <thead v-cloak>
                 <tr>
                     <th style="width:100px;">ข้อมูลเตียงผู้ป่วย</th>

@@ -1,10 +1,12 @@
-<template>
+<template >
+    <div>
     <div v-if ="user">
     <HeaderSickbed/>
     <SectionSickbed/>
     </div>
-    <div v-else>
-      
+    <div v-else >
+        {{tokenFalse}}
+    </div>
     </div>
    
 </template>
@@ -19,17 +21,24 @@ import '../assets/css/jquery.fancybox.css';
 import '../assets/css/animate.css';
 import '../assets/css/styleTable.css';
 export default {
-    
     name: 'Sickbed',
     props:['user'],
+    
     components:{
         HeaderSickbed,
-        SectionSickbed
+        SectionSickbed,
     },
     data(){
         return {
-            status : ''
+            status : '',
+            getdata : '',
+            tokenFalse: 'invalid token!'
         }
+    },
+    methods:{
+      test: function(){
+          this.getdata = this.user
+      }
     }
 
     

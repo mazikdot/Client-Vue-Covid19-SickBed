@@ -1,12 +1,14 @@
 <template>
+    <!-- <user-data :user="user"></user-data> -->
   <router-view :user="user"/>
   <!-- <router-view :user="user"></router-view> -->
 </template>
 <script>
 // import Header  from "../src/components/Header";
 export default {
+    name: 'App',
   components: {
-
+     
   },
    data(){
         return {
@@ -23,10 +25,6 @@ export default {
         });
         this.user = response.data
         }
-        // else
-        // {
-        //     this.$router.push('/');
-        // }
     }
 }
 </script>

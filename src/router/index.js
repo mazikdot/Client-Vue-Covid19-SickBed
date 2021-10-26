@@ -10,6 +10,7 @@ import RegisterPage from '../views/RegisterPage.vue'
 import Login from '../views/Login.vue'
 import HomePage from '../views/HomePage.vue'
 import Sickbed from '../views/Sickbed.vue'
+import AddSickbed from '../views/AddSickbed.vue'
 const routes = [
   {
     path: '/',
@@ -62,6 +63,12 @@ const routes = [
     name: 'RegisterPage',
     component: RegisterPage
   },
+  {
+    path: '/AddSickbed',
+    name: 'AddSickbed',
+    component: AddSickbed
+  },
+ 
  
   {
     path: '/all-jobs',

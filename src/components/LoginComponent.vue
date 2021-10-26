@@ -2,7 +2,7 @@
      <div v-bind:style="{ 'text-align': 'center', 'margin-top ':'25px'}" id ="user-login" class="bg">
     <div class="container_login" 
     
-    v-bind:style="{ 'margin-top': ' 3%'}"
+    v-bind:style="{ 'margin-top': ' 3%','margin-bottom':'12%'}"
     >
    <div
    v-bind:style="{ 'text-align': ' center' }"
@@ -34,9 +34,8 @@
             <!-- <a href="/SendLogin" name="btn_login" class="form__button" >เข้าสู่ระบบ</a> -->
         </form>
     </div>
-    <br><br><br><br>
-    <br><br><br><br>
- 
+  
+    
     </div>
 </template>
 <script>
