@@ -1,5 +1,7 @@
 <template>
-    <div id="insertSickbed">
+  <div v-if="user">
+      <HeaderSickbed/>
+    <div >
     <main class="mn-inner">
       <div class="row" id="card-input">
         <div class="col s10 m10 l10">
@@ -28,7 +30,7 @@
                         <div class="col m12">
                           <div class="input-field col m3 s12">
                             <h5 style="font-size: 16px;">ตำแหน่งที่ตั้งเตียงผู้ป่วยที่บริจาค</h5>
-                            <input id="vlillage"   name="vlillage" v-model="vlillage" type="text" placeholder="เลขที่ / หมู่ที่ " required>
+                            <input id="village"   name="village" v-model="village" type="text" placeholder="เลขที่ / หมู่ที่ " required>
                           </div>
                           <div class="input-field col m3 s12">
                             <h5 style="font-size: 16px;">จังหวัดที่ตั้งเตียงผู้ป่วย</h5>
@@ -81,12 +83,20 @@
       </div>
     </main>
   </div>
+  </div>
+  <div v-else>
+      {{messageToken}}
+  </div>
 </template>
 
 <script>
+import HeaderSickbed from '../components/HeaderSickbed.vue'
 export default {
-      name: 'FormAddSickbed',
+      name: 'FormDonate',
       props:['user'],
+      components:{
+        HeaderSickbed
+      },
       data(){
           return {
             user_username: '',
@@ -99,7 +109,8 @@ export default {
             amphures_data: '',
             select_districts: '',
             districts_data: '',
-            vlillage: ''
+            village: '',
+            messageToken: 'Invalid token'
         }
       },
       methods: {
@@ -138,9 +149,8 @@ export default {
       },
         submitData() {
           // console.log('test')
-          // this.user_username = this.user.user_username
-          // this.user_username = this.user
-          console.log(this.user)
+          this.user_username = this.user.data.user_username
+          // console.log(this.user.data.user_username)
           // conseol.log(user.data)
           axios.post("http://localhost:3000/insert-sickbed", {
             user_username : this.user_username,
@@ -152,15 +162,20 @@ export default {
             districts_id: this.select_districts,
             amphure_id: this.select_amphures
           }).then(res => {
-            console.log(res)
-            if (res.data.message == 'โปรดลองอีกครั้ง !!!') {
-              swal(res.data.message, "โปรดตรวจสอบข้อมูลของท่านอีกครั้ง", "error").then(function() {
-              });
-            } else if (res.data.message == 'บริจาคเตียงผู้ป่วยสำเร็จ') {
-              swal(res.data.message, 'บริจาคเตียงผู้ป่วยสำเร็จ', 'success').then(function() {
-                window.location.href ='user-home.php'
-              });
-            }
+            // console.log(res)
+             if (res.data.status == false) {
+              const alert = async() =>{
+                await swal('ขออภัยค่ะ', "โปรดตรวจสอบข้อมูลของท่านอีกครั้ง", "error");
+                }
+              alert();
+              } 
+             else if (res.data.status == true) {
+              const alert = async() =>{
+                await swal('ขอบคุณค่ะ', "บริจาคเตียงผู้ป่วยเรียบร้อยแล้ว", "success");
+                await this.$router.push('Sickbed')
+                }
+              alert();
+              } 
           });
         }
       },

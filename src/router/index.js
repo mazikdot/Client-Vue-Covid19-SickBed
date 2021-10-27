@@ -11,11 +11,17 @@ import Login from '../views/Login.vue'
 import HomePage from '../views/HomePage.vue'
 import Sickbed from '../views/Sickbed.vue'
 import AddSickbed from '../views/AddSickbed.vue'
+import FormDonate from '../views/FormDonate.vue'
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/FormDonate',
+    name: 'FormDonate',
+    component: FormDonate
   },
   {
     path: '/Login',

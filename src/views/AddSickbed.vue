@@ -2,7 +2,7 @@
     <div>
     <div v-if="user">
     <HeaderSickbed/>
-    <FormAddSickbed/>
+    <FormDonate/>
     </div>
     <div v-else>
         {{messageToken}}
@@ -13,13 +13,14 @@
 <script>
 import '../assets/css/styles.css';
 import HeaderSickbed from '../components/HeaderSickbed.vue'
-import FormAddSickbed from '../components/FormAddSickbed.vue'
+import FormDonate from './FormDonate.vue'
+// import FormAddSickbed from '../components/FormAddSickbed.vue'
 export default {
     name : 'AddSickbed',
     props:['user'],
     components:{
         HeaderSickbed,
-        FormAddSickbed
+        FormDonate
     },
     data(){
         return{

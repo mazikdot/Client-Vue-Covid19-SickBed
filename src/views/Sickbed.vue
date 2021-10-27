@@ -7,6 +7,7 @@
     <div v-else >
         {{tokenFalse}}
     </div>
+    <!-- <button @click ="test()">ปุ่มกด</button> -->
     </div>
    
 </template>
@@ -37,7 +38,8 @@ export default {
     },
     methods:{
       test: function(){
-          this.getdata = this.user
+          this.getdata = this.user.data.user_username
+          console.log(this.user.data.user_username)
       }
     }
 
