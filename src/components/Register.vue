@@ -223,7 +223,9 @@ export default {
                 await this.$router.push('login');
                 }
               alert();
-              } else if (res.data.message == 'โปรดลองอีกครั้งบัญชีนี้มีผู้ใช้แล้ว') {
+              } 
+              
+              else if (res.data.message == 'โปรดลองอีกครั้งบัญชีนี้มีผู้ใช้แล้ว') {
                 swal(res.data.message, 'กรุณาลองอีกครั้ง', 'error').then(function() {
                    this.$router.push('Login')
                 });
