@@ -12,11 +12,23 @@ import HomePage from '../views/HomePage.vue'
 import Sickbed from '../views/Sickbed.vue'
 import AddSickbed from '../views/AddSickbed.vue'
 import FormDonate from '../views/FormDonate.vue'
+import SickbedWant from '../views/SickbedWant.vue'
+import FormWant from '../views/FormWant.vue'
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/SickbedWant',
+    name: 'SickbedWant',
+    component: SickbedWant
+  },
+  {
+    path: '/FormWant',
+    name: 'FormWant',
+    component: FormWant
   },
   {
     path: '/FormDonate',

@@ -3,13 +3,14 @@
 <div class="table-wrapper" v-cloak >
         <div class="table-title" v-cloak >
             <div class="row" v-cloak>
-                <div class="col-sm-9"><h2  class ="fontsizebed" style="margin-left:200px ; font-size:20px;  color:black;"><b></b> <b>ค้นหาเตียงผู้ป่วย <br> </b></h2>
-                
-                                <p style="padding-left: 200px; margin-top: 10px;" class="text-center">เตียงผู้ป่วยทั้งหมดที่ผู้ใช้ร่วมกันบริจาค</p>
+                <div class="col-sm-9"><h2  class ="fontsizebed" style="margin-left:50% ; font-size:20px;  color:black;"><b></b> <b>รายชื่อผู้ต้องการเตียงรักษา<br> </b></h2>
+                <div >
+                    <router-link to="/FormWant"  class="btn btn-primary" style=" padding-bottom: 40px;"> ฉันต้องการเตียงผู้ป่วย</router-link>
+                </div>
+                                <!-- <p style="padding-left: 200px; margin-top: 10px;" class="text-center">เตียงผู้ป่วยทั้งหมดที่ผู้ใช้ร่วมกันบริจาค</p> -->
                 </div>
                 <div class="col-sm-3">
-                    <div class="btn-group" data-toggle="buttons" v-cloak style="color:#ED5441">
-                     
+                    <div class="btn-group" data-toggle="buttons" v-cloak style="color:#ED5441">  
                     </div>
                 </div>
             </div>
@@ -19,8 +20,7 @@
             <thead v-cloak>
                 <tr>
                     <th style="width:100px;">ข้อมูลเตียงผู้ป่วย</th>
-                    <th style="width:80px;">หมายเหตุ</th>
-                  
+                    <th style="width:80px;">หมายเหตุ</th>     
                     <th style="width:60px;">ผู้บริจาคเตียงผู้ป่วย</th>
                     <th style="width:100px;">ตำแหน่งเตียงผู้ป่วย</th>
                     <th style="width:20px;">Status</th>
