@@ -69,12 +69,16 @@
                           <!-- <div class="input-field col m7 s12">
                            <p id="barichak"><b>ร่วมกันบริจาคเตียงให้กับผู้ป่วยเพื่อช่วยเหลือ<br>แก่ผู้ที่ไม่มีเตียงผู้ป่วยที่จะรักษาโรค Covid - 19</b></p>
                           </div> -->
-                          <div class="input-field col m2 s12">
+                          
+                          
+                        </div>
+                        <div class="col m12">
+                            <div class="input-field col m2 s12">
                             <!-- <button type="submit" name="add" onclick="return valid();" id="add" class="waves-effect waves-light btn indigo m-b-xs">ADD</button> -->
                             <input type="button" value="เพิ่มข้อมูลต้องการเตียง" class="waves-effect waves-light btn indigo m-b-xs" @click="submitData()">
                             <!-- <a href="login.php" style="color:FFFFFF;" class="waves-effect waves-light btn indigo2 m-b-xs">เข้าสู่ระบบ</a> -->
                           </div>
-                          
+
                         </div>
                       </div>
                     </div>

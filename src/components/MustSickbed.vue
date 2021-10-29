@@ -5,7 +5,7 @@
             <div class="row" v-cloak>
                 <div class="col-sm-9"><h2  class ="fontsizebed" style="margin-left:50% ; font-size:20px;  color:black;"><b></b> <b>รายชื่อผู้ต้องการเตียงรักษา<br> </b></h2>
                 <div >
-                    <router-link to="/FormWant"  class="btn btn-primary" style=" padding-bottom: 40px;"> ฉันต้องการเตียงผู้ป่วย</router-link>
+                    <router-link to="/FormWant"  class="btn btn-primary" style=" padding-bottom: 40px;">เพิ่มรายชื่อ : ฉันต้องการเตียงผู้ป่วย</router-link>
                 </div>
                                 <!-- <p style="padding-left: 200px; margin-top: 10px;" class="text-center">เตียงผู้ป่วยทั้งหมดที่ผู้ใช้ร่วมกันบริจาค</p> -->
                 </div>
@@ -30,7 +30,6 @@
                 <tr :key="row.sick_id" v-cloak v-for ="row in allData" data-status="active">
                     <td>{{row.data_sickbed}}</td>
                     <td>วันที่บริจาค<br>{{row.date_add}}<br>{{row.sick_note}}</td>
-                  
                     <td class="btn-sm manage" >{{row.users}}<br>{{row.user_phone}}</td>
                     <td class="btn-sm manage" >{{row.address}}</td>
                     

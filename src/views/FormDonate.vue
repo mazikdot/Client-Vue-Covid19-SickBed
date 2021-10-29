@@ -10,7 +10,14 @@
               <form id="example-form" method="post" name="addemp">
                 <div>
                   <!-- <h3>สมัครบัญชีผู้ใช้</h3> -->
-                  <h5 style="text-align: center;">บริจาคเตียงผู้ป่วย</h5>
+                  <div class="col s12">
+            <h5 style="text-align: center; 
+            ">บริจาคเตียงผู้ป่วย</h5>
+                  </div>
+                  <!-- <div class="col s4" style="margin-top: 15px;">
+                    <p>แบบฟอร์มสำหรับการบริจาคเตียงผู้ป่วย</p>
+                  </div> -->
+                 
                   <section class="section_insert">
                     <div class="wizard-content">
                       <div class="row">

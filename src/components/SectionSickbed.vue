@@ -1,6 +1,6 @@
 <template>
     <div  id = "sickbed" v-cloak >
-<div class="table-wrapper" v-cloak >
+<div class="table-wrapper" v-cloak>
         <div class="table-title" v-cloak >
             <div class="row" v-cloak>
                 <div class="col-sm-9"><h2  class ="fontsizebed" style="margin-left:200px ; font-size:20px;  color:black;"><b></b> <b>ค้นหาเตียงผู้ป่วย <br> </b></h2>
@@ -15,32 +15,28 @@
             </div>
         </div>
         <!-- <%= getdata %> -->
-        <table v-cloak class="table table-striped table-hover" id ="userTable"  >
+              <table v-cloak class="table table-striped table-hover" id ="userTable"   >
             <thead v-cloak>
                 <tr>
                     <th style="width:100px;">ข้อมูลเตียงผู้ป่วย</th>
-                    <th style="width:80px;">หมายเหตุ</th>
-                  
+                    <th style="width:80px;">วันที่บริจาค</th>     
                     <th style="width:60px;">ผู้บริจาคเตียงผู้ป่วย</th>
                     <th style="width:100px;">ตำแหน่งเตียงผู้ป่วย</th>
-                    <th style="width:20px;">Status</th>
+                    <th style="width:30px;">Status</th>
                 </tr>
             </thead>
             <tbody v-cloak>
                 <tr :key="row.sick_id" v-cloak v-for ="row in allData" data-status="active">
                     <td>{{row.data_sickbed}}</td>
                     <td>วันที่บริจาค<br>{{row.date_add}}<br>{{row.sick_note}}</td>
-                  
                     <td class="btn-sm manage" >{{row.users}}<br>{{row.user_phone}}</td>
                     <td class="btn-sm manage" >{{row.address}}</td>
-                    
-                      <td><span   :class="[row.sit_id === 1 ? 'label label-danger' : '', '']"  class="label label-success">{{row.sit_name}}</span></td>
+                    <td><span   :class="[row.sit_id === 1 ? 'label label-danger' : '', '']"  class="label label-success">{{row.sit_name}}</span></td>
                 </tr>
             </tbody>
         </table>
     </div> 
     </div>
-    
 </template>
 
 <script>
