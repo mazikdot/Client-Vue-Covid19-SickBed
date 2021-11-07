@@ -2,7 +2,7 @@
      <div v-bind:style="{ 'text-align': 'center', 'margin-top ':'25px'}" id ="user-login" class="bg">
     <div class="container_login" 
     
-    v-bind:style="{ 'margin-top': ' 3%','margin-bottom':'12%'}"
+    v-bind:style="{ 'margin-top': ' 3%','margin-bottom':'3%'}"
     >
    <div
    v-bind:style="{ 'text-align': ' center' }"

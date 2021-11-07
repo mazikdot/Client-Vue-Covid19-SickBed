@@ -17,17 +17,17 @@
                         <div class="col m12">
                           <div class="input-field col m12 s12">
                             <h5 style="font-size: 16px;">เตียงที่ฉันต้องการ</h5>
-                            <input id="sickw_name" name="sick_name"  v-model="sick_name" type="text" placeholder="กรอกข้อมูลเตียงที่ฉันต้องการ" required>
+                            <input id="sickw_name" name="sickw_name"  v-model="sickw_name" type="text" placeholder="กรอกข้อมูลเตียงที่ฉันต้องการ" required>
                           </div>
                         </div>
                         <div class="col m12">
                           <div class="input-field col m6 s12">
                             <h5 style="font-size: 16px;">จำนวน</h5>
-                            <input id="sick_amount"   name="sick_amount" v-model="sick_amount" type="number" placeholder="จำนวนกรอกเป็นตัวเลข" required>
+                            <input id="sickw_amount"   name="sickw_amount" v-model="sickw_amount" type="number" placeholder="จำนวนกรอกเป็นตัวเลข" required>
                           </div>
                           <div class="input-field col m6 s12">
                             <h5 style="font-size: 16px;">ต้องการใช้เตียงผู้ป่วยระหว่างวันที่</h5>
-                            <input id="sick_amount"   name="sick_amount" v-model="sick_amount" type="text" placeholder="กรอกวันที่ต้องการใช้เตียงผู้ป่วย เช่น 29-10-2564 จนถึง 8-11-2564" required>
+                            <input id="datebetween"   name="datebetween" v-model="datebetween" type="text" placeholder="กรอกวันที่ต้องการใช้เตียงผู้ป่วย เช่น 29-10-2564 จนถึง 8-11-2564" required>
                           </div>
                          
                         </div>
@@ -63,7 +63,7 @@
                           <div class="input-field col m5 s12">
                             <h5 style="font-size: 16px;">หมายเหตุอื่น ๆ ตามที่ต้องการระบุ</h5>
                           
-                            <input id="sick_note" name="sick_note" type="text" autocomplete="off" v-model="sick_note" required placeholder="หมายเหตุอื่น ๆ ">
+                            <input id="sickw_note" name="sickw_note" type="text" autocomplete="off" v-model="sickw_note" required placeholder="หมายเหตุอื่น ๆ ">
                           </div>
                        
                           <!-- <div class="input-field col m7 s12">
@@ -108,9 +108,10 @@ export default {
       data(){
           return {
             user_username: '',
-            sick_name: '',
-            sick_amount: '',
-            sick_note: '',
+            sickw_name: '',
+            sickw_amount: '',
+            sickw_note: '',
+            datebetween: '',
             select_province: '',
             province_data: '',
             select_amphures: '',
@@ -160,11 +161,12 @@ export default {
           this.user_username = this.user.data.user_username
           // console.log(this.user.data.user_username)
           // conseol.log(user.data)
-          axios.post("http://localhost:3000/insert-sickbed", {
+          axios.post("http://localhost:3000/insert-sickbed-want", {
             user_username : this.user_username,
-            sick_name: this.sick_name,
-            sick_amount: this.sick_amount,
-            sick_note: this.sick_note,
+            sickw_name: this.sickw_name,
+            sickw_amount: this.sickw_amount,
+            sickw_note: this.sickw_note,
+            datebetween: this.datebetween,
             village: this.village,
             province_id: this.select_province,
             districts_id: this.select_districts,

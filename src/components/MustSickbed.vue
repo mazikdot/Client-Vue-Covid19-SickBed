@@ -19,21 +19,21 @@
         <table v-cloak class="table table-striped table-hover" id ="userTable"  >
             <thead v-cloak>
                 <tr>
-                    <th style="width:100px;">ข้อมูลเตียงผู้ป่วย</th>
-                    <th style="width:80px;">หมายเหตุ</th>     
-                    <th style="width:60px;">ผู้บริจาคเตียงผู้ป่วย</th>
-                    <th style="width:100px;">ตำแหน่งเตียงผู้ป่วย</th>
-                    <th style="width:20px;">Status</th>
+                    <th style="width:100px;">ข้อมูลเตียงที่ต้องการ</th>
+                    <th style="width:80px;">วันเวลาที่ต้องการใช้</th>     
+                    <th style="width:150px;">ข้อมูลผู้ใช้ที่ต้องการเตียง</th>
+                    <th style="width:100px;">พื้นที่ที่ต้องการเตียง</th>
+                    <th style="width:60px;">Status</th>
                 </tr>
             </thead>
             <tbody v-cloak>
                 <tr :key="row.sick_id" v-cloak v-for ="row in allData" data-status="active">
-                    <td>{{row.data_sickbed}}</td>
-                    <td>วันที่บริจาค<br>{{row.date_add}}<br>{{row.sick_note}}</td>
-                    <td class="btn-sm manage" >{{row.users}}<br>{{row.user_phone}}</td>
-                    <td class="btn-sm manage" >{{row.address}}</td>
-                    
-                      <td><span   :class="[row.sit_id === 1 ? 'label label-danger' : '', '']"  class="label label-success">{{row.sit_name}}</span></td>
+                    <td>{{row.datawant}}</td>
+                    <!-- <td>{{row.give_name}}</td> -->
+                    <td class="btn-sm manage" >{{row.datebetween}}</td>
+                    <td class="btn-sm manage" >{{row.name}}</td>
+                    <td class="btn-sm manage" >{{row.map}}</td>
+                    <td><span   :class="[row.give_id === 1 ? 'label label-danger' : '', '']"  class="label label-success">{{row.give_name}}</span></td>
                 </tr>
             </tbody>
         </table>
@@ -55,7 +55,7 @@ export default {
     methods:{
     
         fetchAllData : function(){
-          axios.get("http://localhost:3000/all-sickbed").then((res) =>{
+          axios.get("http://localhost:3000/all-sickwant").then((res) =>{
            this.allData = res.data.data
                 // console.log(res.data.data)
                 $(document).ready( function () {

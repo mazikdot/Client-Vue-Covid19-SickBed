@@ -6,6 +6,7 @@ import JobDetails from '../views/jobs/JobDetails.vue'
 import NotFound from '../views/jobs/NotFound.vue'
 import Register from '../components/Register.vue'
 import test from '../components/test.vue'
+import My from '../views/MyData.vue'
 import RegisterPage from '../views/RegisterPage.vue'
 import Login from '../views/Login.vue'
 import HomePage from '../views/HomePage.vue'
@@ -14,11 +15,22 @@ import AddSickbed from '../views/AddSickbed.vue'
 import FormDonate from '../views/FormDonate.vue'
 import SickbedWant from '../views/SickbedWant.vue'
 import FormWant from '../views/FormWant.vue'
+import EditMyData from '../views/EditMyData.vue'
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/EditMyData',
+    name: 'EditMyData',
+    component: EditMyData
+  },
+  {
+    path: '/Myprofile',
+    name: 'My',
+    component: My
   },
   {
     path: '/SickbedWant',
