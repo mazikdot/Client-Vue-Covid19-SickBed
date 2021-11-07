@@ -153,17 +153,7 @@ export default {
     },
     methods: {
      
-        fetchProvince : function(){
-          axios.get("http://localhost:3000/ReadProvince").then((response) =>{
-         // this.prefix_test = []
-          this.province_data = response.data.data;
-          this.select_amphures = '';
-          this.amphures_data = '';
-          this.select_districts = '';
-          this.districts_data = '';
-          //console.log(this.prefix_test);
-          })
-      },
+       
      
        fetchAmphures : function(){
           axios.put("http://localhost:3000/ReadAmphures",{
@@ -197,6 +187,17 @@ export default {
           axios.get("http://localhost:3000/Sex").then((response) =>{
          // this.prefix_test = []
           this.sex_data = response.data.data;
+          //console.log(this.prefix_test);
+          })
+      },
+       fetchProvince : function(){
+          axios.get("http://localhost:3000/ReadProvince").then((response) =>{
+         // this.prefix_test = []
+          this.province_data = response.data.data;
+          this.select_amphures = '';
+          this.amphures_data = '';
+          this.select_districts = '';
+          this.districts_data = '';
           //console.log(this.prefix_test);
           })
       },

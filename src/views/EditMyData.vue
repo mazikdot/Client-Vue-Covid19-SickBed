@@ -4,6 +4,8 @@
     <HeaderSickbed/>
     <!-- <My/> -->
      <div class="container">
+       <!-- <router-view :props-name-defined-in-router="user_username"></router-view> -->
+
     <div class="main-body" style="margin-top:20px;">
           <div class="row gutters-sm">
            <div class="col-md-12">
@@ -11,149 +13,67 @@
             <div class="col-md-12">
                 
               <div class="card mb-3" style="padding-top: 25px;">
-                  
-                  <!-- <div class="text-center">
-                       <h1>แก้ไขข้อมูล</h1>    
-                   <img src="@/assets/img/logo.png"  alt="center"
-   
-         v-bind:style="{ 'text-align': ' center' }"
-         
-   >
-   </div> -->
+               
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">คำนำหน้าชื่อ</h6>
+                      <h6 class="mb-0">ชื่อ - นามสกุล</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div class="col-sm-3 text-secondary">
+                       <label for="select_prefix">คำนำหน้าชื่อ</label>
+                 <select v-model="select_prefix" >
+                                <option style="width:20px;" value="">เลือกคำนำหน้า</option>
+                                <option :key="data.prefix_id" v-for="data in prefix_test" :value="data.prefix_id" >{{data.pre_th_name}}</option>
+                              </select>
+                      <!-- {{this.user.data.name}} -->
+                    </div>
+                    <div class="col-sm-3 text-secondary">
+                        <label>ชื่อ</label>
                 <input id="user_firstname" name="user_firstname" v-model="user_firstname" type="text" placeholder="กรอกชื่อ" required>
                       <!-- {{this.user.data.name}} -->
                     </div>
+                    <div class="col-sm-3 text-secondary">
+                      <label for="">นามสกุล</label>
+                <input id="user_lastname" name="user_lastname" v-model="user_lastname" type="text" placeholder="กรอกนามสกุล" required>
+                      <!-- {{this.user.data.name}} -->
+                    </div>
                   </div>
+                  <!-- -------------------------------End Firstname - Lastname-------------------------------------- -->
+                  <hr>
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">ชื่อ</h6>
+                      <h6 class="mb-0">อีเมล - เบอร์โทรศัพท์ - เพศ</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
-                           <input id="user_firstname" name="user_firstname" v-model="user_firstname" type="text" placeholder="กรอกชื่อ" required>
+                    <div class="col-sm-3 text-secondary">
+                       <label for="select_prefix">เพศ</label>
+                 <select  v-model="select_sex">
+                                <option value="">เลือกเพศ</option>
+                                <option :key="data.sex_id" v-for="data in sex_data" :value="data.sex_id">{{data.sex_name}}</option>
+                              </select>
+                      <!-- {{this.user.data.name}} -->
+                    </div>
+                    <div class="col-sm-3 text-secondary">
+                        <label>อีเมล</label>
+                <input id="user_email" name="user_email" v-model="user_email" type="text" placeholder="กรอกอีเมล" required>
+                      <!-- {{this.user.data.name}} -->
+                    </div>
+                    <div class="col-sm-3 text-secondary">
+                      <label for="">เบอร์โทรศัพท์</label>
+                <input id="user_phone" name="user_phone" v-model="user_phone" type="text" placeholder="กรอกเบอร์โทรศัพท์" required>
                       <!-- {{this.user.data.name}} -->
                     </div>
                   </div>
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">นามสกุล</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                           <input id="user_firstname" name="user_firstname" v-model="user_firstname" type="text" placeholder="กรอกชื่อ" required>
-                      <!-- {{this.user.data.name}} -->
-                    </div>
-                  </div>
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">เพศ</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                           <input id="user_firstname" name="user_firstname" v-model="user_firstname" type="text" placeholder="กรอกชื่อ" required>
-                      <!-- {{this.user.data.sex_name}} -->
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">อีเมล</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                           <input id="user_firstname" name="user_firstname" v-model="user_firstname" type="text" placeholder="กรอกชื่อ" required>
-                       <!-- {{this.user.data.user_email}}  -->
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">เบอร์โทรศัพท์</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                           <input id="user_firstname" name="user_firstname" v-model="user_firstname" type="text" placeholder="กรอกชื่อ" required>
-                           <!-- {{this.user.data.user_phone}}  -->
-                    </div>
-                  </div>
-                  <hr>
+                  <!-- ------------------------------End Phone Sex Email-------------------------------------------------------- -->
                 
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">ที่อยู่</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                       <!-- {{this.user.data.address}}  -->
-                    </div>
-                  </div>
-                  <hr>
                   <div class="row text-center">
                     <div class="col-sm-12" style="padding-bottom: 25px;">
                       <!-- <a class="btn btn-info " target="__blank" >แก้ไขข้อมูล</a> -->
-                      <router-link class="btn btn-info " to="/Sickbed">บันทึกการแก้ไข</router-link>
+                      <!-- <router-link class="btn btn-info " to="/Sickbed">บันทึกการแก้ไข</router-link> -->
+                      <button @click="updateDataUser()"  class="btn btn-info ">บันทึกการแก้ไข</button>
                       <router-link class="btn btn-info " to="/Myprofile">ย้อนกลับ</router-link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row gutters-sm">
-                <div class="col-sm-6 mb-3">
-                  <div class="card h-100">
-                    <div class="card-body">
-                       <h6>ข้อมูลเตียงที่ฉันต้องการ</h6>
-                      <small>Web Design</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Website Markup</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>One Page</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Mobile Template</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Backend API</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mb-3">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h6>ข้อมูลเตียงที่ฉันบริจาค</h6>
-                      <small>Web Design</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Website Markup</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>One Page</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Mobile Template</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Backend API</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -176,6 +96,7 @@
 </template>
 
 <script>
+
 import HeaderSickbed from '../components/HeaderSickbed'
 import My from '../components/My'
 // import SectionSickbed from '../components/SectionSickbed'
@@ -186,10 +107,13 @@ import '../assets/css/font-awesome.css';
 import '../assets/css/jquery.fancybox.css';
 import '../assets/css/animate.css';
 import '../assets/css/styleTable.css';
+var data1 ;
+let data2 ;
+
+
 export default {
     name: 'EditMyData',
     props:['user'],
-    
     components:{
         HeaderSickbed,
         My,
@@ -198,14 +122,151 @@ export default {
         return {
             status : '',
             getdata : '',
-            tokenFalse: 'invalid token!'
+            tokenFalse: 'invalid token!',
+         
+            prefix_data: '',
+            sex_data: '',
+            user_username: '',
+            user_lastname: '',
+            user_firstname: '',
+            user_email: '',
+            user_passwords: '',
+            user_passwords_conf: '',
+            user_phone: '',
+            select_prefix: '',
+            select_sex: '',
+            prefix_test: [],
+            id: this.$route.params.user_username
         }
     },
     methods:{
-      test: function(){
-          this.getdata = this.user.data.user_username
-          console.log(this.user.data)
-      }
+      updateDataUser : function(){
+         axios
+        .post("http://localhost:3000/UpdateDataUser", {
+          user_username: this.user_username,
+          user_firstname: this.user_firstname,
+          user_lastname: this.user_lastname,
+          user_phone : this.user_phone,
+          user_email: this.user_email,
+          prefix_id: this.select_prefix,
+          sex_id: this.select_sex,
+        
+        })
+        .then((res) => {
+          // alert("Update Successfully");
+          // window.location.reload("/Lista");
+          if(res.data.messeage = "Update Successfully"){
+            const alert = async() =>{
+                await swal(res.data.message, "Insert Success fully", "success");
+                
+                await this.$router.push('Myprofile');
+                location.reload();
+                }
+              alert();
+          }
+         // console.log(res.data.);
+        });
+      },
+      editDataUser : function(){
+          axios.get("http://localhost:3000/FetchDataUserOne/"+this.id).then((res) => {
+ 
+        this.user_username = res.data.data.user_username
+        this.user_password = res.data.data.user_password
+        this.user_firstname = res.data.data.user_firstname
+        this.user_lastname = res.data.data.user_lastname
+        this.user_phone = res.data.data.user_phone
+        this.user_email = res.data.data.user_email
+        this.select_prefix = res.data.data.prefix_id
+        this.select_districts = res.data.data.districts_id
+        this.select_province = res.data.data.province_id
+        this.select_amphures = res.data.data.amphure_id
+        this.select_sex = res.data.data.sex_id
+        // dataz = res.data.data.province_id;
+        data1 = res.data.data.province_id;
+        data2 = res.data.data.province_id;
+        
+        // console.log(data1)
+        // console.log(data2)
+      });
+      },
+      //   fetchAmphures : function(){
+      //     axios.put("http://localhost:3000/ReadAmphures",{
+      //         province_id: this.select_province
+      //     }).then((response) =>{
+      //     this.amphures_data = response.data.data;
+      //     this.select_amphures = '';
+      //     this.select_districts = '';
+      //     this.districts_data = '';
+      //     })
+      // },
+      fetchAmphures : function(){
+       
+   axios
+        .get("http://localhost:3000/test/"+data2, {
+          province_id: this.select_province,
+        })
+        .then((res) => {
+        
+           this.amphures_data = res.data.data;
+          this.select_amphures = '';
+          this.select_districts = '';
+          this.districts_data = '';
+          console.log(res)
+         
+        });
+      },
+       fetchDistricts : function(){
+          axios.put("http://localhost:3000/ReadDistrict",{
+                amphure_id: this.select_amphures
+          }).then((response) =>{
+           this.districts_data = response.data.data;
+          // console.log(response.data.data);
+           this.select_districts = '';
+
+          })
+      },
+       fetchPrefix : function(){
+          axios.get("http://localhost:3000/Prefix").then((response) =>{
+          this.prefix_test = []
+          this.prefix_test = response.data.data;
+      //    console.log(this.prefix_test);
+          })
+      },
+       fetchSex : function(){
+          axios.get("http://localhost:3000/Sex").then((response) =>{
+         // this.prefix_test = []
+          this.sex_data = response.data.data;
+          //console.log(this.prefix_test);
+          })
+      },
+       fetchProvince : function(){
+          axios.get("http://localhost:3000/ReadProvince").then((response) =>{
+         // this.prefix_test = []
+          this.province_data = response.data.data;
+          // this.select_amphures = '';
+          // this.amphures_data = '';
+          // this.select_districts = '';
+          // this.districts_data = '';
+          //console.log(this.prefix_test);
+          })
+      },
+    },
+    // created: function(){
+    //     this.editDataUser();
+    //     this.fetchProvince();
+    //     this.fetchSex();
+    //     this.fetchPrefix();
+    //     this.fetchAmphures();
+    //     this.fetchDistricts();
+    // },
+    async created(){
+        this.editDataUser();
+        //location.reload();
+        this.fetchProvince();
+        this.fetchSex();
+        this.fetchPrefix();
+        this.fetchAmphures();
+        this.fetchDistricts();
     }
 
     

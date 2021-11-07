@@ -71,7 +71,7 @@
                   <div class="row text-center">
                     <div class="col-sm-12" style="padding-bottom: 25px;">
                       <!-- <a class="btn btn-info " target="__blank" >แก้ไขข้อมูล</a> -->
-                      <router-link class="btn btn-info " :to ="{name : 'EditMyData',param:{user_username : this.user.data.user_username}}">แก้ไขข้อมูล</router-link>
+                      <router-link class="btn btn-info " :to ="{name : 'EditMyData',params:{user_username : this.user.data.user_username}}">แก้ไขข้อมูล</router-link>
                     </div>
                   </div>
                 </div>
@@ -177,10 +177,10 @@ export default {
         }
     },
     methods:{
-      test: function(){
-          this.getdata = this.user.data.user_username
-          console.log(this.user.data)
-      }
+      // test: function(){
+      //     this.getdata = this.user.data.user_username
+      //     console.log(this.user.data)
+      // }
     }
 
     
