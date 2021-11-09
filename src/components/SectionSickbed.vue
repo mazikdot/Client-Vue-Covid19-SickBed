@@ -29,7 +29,7 @@
                 <tr :key="row.sick_id" v-cloak v-for ="row in allData" data-status="active">
                     <td>{{row.data_sickbed}}</td>
                     <td>วันที่บริจาค<br>{{row.date_add}}<br>{{row.sick_note}}</td>
-                    <td class="btn-sm manage" >{{row.users}}<br>{{row.user_phone}}</td>
+                    <td class="btn-sm manage" >{{row.users}}<br>ติดต่อได้ที่ : {{row.user_phone}}<br>{{row.user_email}}</td>
                     <td class="btn-sm manage" >{{row.address}}</td>
                     <td><span   :class="[row.sit_id === 1 ? 'label label-danger' : '', '']"  class="label label-success">{{row.sit_name}}</span></td>
                 </tr>

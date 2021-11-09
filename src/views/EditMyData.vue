@@ -189,42 +189,9 @@ export default {
         // console.log(data2)
       });
       },
-      //   fetchAmphures : function(){
-      //     axios.put("http://localhost:3000/ReadAmphures",{
-      //         province_id: this.select_province
-      //     }).then((response) =>{
-      //     this.amphures_data = response.data.data;
-      //     this.select_amphures = '';
-      //     this.select_districts = '';
-      //     this.districts_data = '';
-      //     })
-      // },
-      fetchAmphures : function(){
-       
-   axios
-        .get("http://localhost:3000/test/"+data2, {
-          province_id: this.select_province,
-        })
-        .then((res) => {
-        
-           this.amphures_data = res.data.data;
-          this.select_amphures = '';
-          this.select_districts = '';
-          this.districts_data = '';
-          console.log(res)
-         
-        });
-      },
-       fetchDistricts : function(){
-          axios.put("http://localhost:3000/ReadDistrict",{
-                amphure_id: this.select_amphures
-          }).then((response) =>{
-           this.districts_data = response.data.data;
-          // console.log(response.data.data);
-           this.select_districts = '';
+    
+     
 
-          })
-      },
        fetchPrefix : function(){
           axios.get("http://localhost:3000/Prefix").then((response) =>{
           this.prefix_test = []
@@ -239,34 +206,12 @@ export default {
           //console.log(this.prefix_test);
           })
       },
-       fetchProvince : function(){
-          axios.get("http://localhost:3000/ReadProvince").then((response) =>{
-         // this.prefix_test = []
-          this.province_data = response.data.data;
-          // this.select_amphures = '';
-          // this.amphures_data = '';
-          // this.select_districts = '';
-          // this.districts_data = '';
-          //console.log(this.prefix_test);
-          })
-      },
+      
     },
-    // created: function(){
-    //     this.editDataUser();
-    //     this.fetchProvince();
-    //     this.fetchSex();
-    //     this.fetchPrefix();
-    //     this.fetchAmphures();
-    //     this.fetchDistricts();
-    // },
     async created(){
         this.editDataUser();
-        //location.reload();
-        this.fetchProvince();
         this.fetchSex();
         this.fetchPrefix();
-        this.fetchAmphures();
-        this.fetchDistricts();
     }
 
     

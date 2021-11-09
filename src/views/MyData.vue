@@ -59,15 +59,7 @@
                   <hr>
                 
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">ที่อยู่</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                       {{this.user.data.address}} 
-                    </div>
-                  </div>
-                  <hr>
+                
                   <div class="row text-center">
                     <div class="col-sm-12" style="padding-bottom: 25px;">
                       <!-- <a class="btn btn-info " target="__blank" >แก้ไขข้อมูล</a> -->
@@ -109,26 +101,21 @@
                   <div class="card h-100">
                     <div class="card-body">
                       <h6>ข้อมูลเตียงที่ฉันบริจาค</h6>
-                      <small>Web Design</small>
+                     
                       <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+
                       </div>
-                      <small>Website Markup</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>One Page</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Mobile Template</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <small>Backend API</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
+                     <div>
+                       <div  v-for="row in allData" :key="row.user_username">
+                         <div v-if="State == true">
+                         <p>เลขที่ : {{row.sick_id}} : {{row.sick_name}}</p>
+                         <p></p>
+                         <hr>
+                         </div>
+                       </div>
+                     <button class="btn btn-info" @click="SickbedUser()">คลิ๊กปุ่มนี้เพื่อดูข้อมูล</button>
+                     <button v-if="State == true" class="btn btn-info" @click="Hidden()">ซ่อนข้อมูล</button>
+                     </div>
                     </div>
                   </div>
                 </div>
@@ -136,7 +123,7 @@
             </div>
           </div>
         </div>
-        <!-- <button @click="test()">asas</button> -->
+        <button @click="SickbedUser()">asas</button>
     </div>
     <!-- <SectionSickbed/> -->
     <!-- <button @click="test()">asdsadsasa</button>
@@ -173,15 +160,30 @@ export default {
         return {
             status : '',
             getdata : '',
-            tokenFalse: 'invalid token!'
+            tokenFalse: 'invalid token!',
+            allData : '',
+            State : false
         }
     },
     methods:{
-      // test: function(){
-      //     this.getdata = this.user.data.user_username
-      //     console.log(this.user.data)
-      // }
+      SickbedUser : function(){
+        //this.getUsername = this.user.data.user_username;
+        //console.log(this.getUsername)
+        this.State = true
+          axios.get("http://localhost:3000/SickbedOne/"+this.user.data.user_username).then((res) => {
+            
+            this.allData = res.data.data;
+            //console.log(this.allData);
+      });
+      },
+      Hidden : function(){
+        this.State = false;
+      }
+    },
+      created: function() {
+   //   this.SickbedUser();
     }
+
 
     
 }
