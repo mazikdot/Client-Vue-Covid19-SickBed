@@ -37,12 +37,12 @@
                 >
               </li>
               <li>
-                <router-link class="scroll-link" to="/Sickbed"
+                <router-link class="scroll-link" to="/SitulationBed"
                   >สถานการณ์เตียงผู้ป่วย</router-link
                 >
               </li>
               <li>
-                <router-link class="scroll-link" to="/Sickbed"
+                <router-link class="scroll-link" to="/SitulationBed"
                   >ยอดการติด Covid-19</router-link
                 >
               </li>
