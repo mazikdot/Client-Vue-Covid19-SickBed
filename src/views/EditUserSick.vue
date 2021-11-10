@@ -16,27 +16,20 @@
               <div class="card mb-3" style="padding-top: 25px;">
                
                 <div class="card-body">
-                     <h5 class="text-center" style="margin-bottom: 30px;">แก้ไขข้อมูลผู้ใช้</h5>
+                     <h5 class="text-center" style="margin-bottom: 30px;">แก้ไขข้อมูลเตียงที่บริจาค</h5>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">ชื่อ - นามสกุล</h6>
+                      <h6 class="mb-0">ข้อมูลเตียง</h6>
                     </div>
-                    <div class="col-sm-3 text-secondary">
-                       <label for="select_prefix">คำนำหน้าชื่อ</label>
-                 <select v-model="select_prefix" >
-                                <option style="width:20px;" value="">เลือกคำนำหน้า</option>
-                                <option :key="data.prefix_id" v-for="data in prefix_test" :value="data.prefix_id" >{{data.pre_th_name}}</option>
-                              </select>
+                   
+                    <div class="col-sm-5 text-secondary">
+                        <label>ข้อมูลเตียง</label>
+                <input id="sick_name" name="sick_name" v-model="sick_name" type="text" placeholder="ข้อมูลเตียงที่ต้องการแก้ไข" required>
                       <!-- {{this.user.data.name}} -->
                     </div>
                     <div class="col-sm-3 text-secondary">
-                        <label>ชื่อ</label>
-                <input id="user_firstname" name="user_firstname" v-model="user_firstname" type="text" placeholder="กรอกชื่อ" required>
-                      <!-- {{this.user.data.name}} -->
-                    </div>
-                    <div class="col-sm-3 text-secondary">
-                      <label for="">นามสกุล</label>
-                <input id="user_lastname" name="user_lastname" v-model="user_lastname" type="text" placeholder="กรอกนามสกุล" required>
+                      <label for="">จำนวน</label>
+                <input id="sick_amount" name="sick_amount" v-model="sick_amount" type="text" placeholder="จำนวนที่ต้องการแก้ไข" required>
                       <!-- {{this.user.data.name}} -->
                     </div>
                   </div>
@@ -45,29 +38,31 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">อีเมล - เบอร์โทรศัพท์ - เพศ</h6>
+                      <h6 class="mb-0">สถานะเตียงผู้ป่วย</h6>
                     </div>
                     <div class="col-sm-3 text-secondary">
-                       <label for="select_prefix">เพศ</label>
-                 <select  v-model="select_sex">
-                                <option value="">เลือกเพศ</option>
-                                <option :key="data.sex_id" v-for="data in sex_data" :value="data.sex_id">{{data.sex_name}}</option>
+                       <label for="select_prefix">สถานะ</label>
+                 <select  v-model="select_sick">
+                                <!-- <option value="">เลือกสถานะ</option> -->
+                                <option :key="data.sit_id" v-for="data in sick_data" :value="data.sit_id">{{data.sit_name}}</option>
                               </select>
                       <!-- {{this.user.data.name}} -->
                     </div>
-                    <div class="col-sm-3 text-secondary">
-                        <label>อีเมล</label>
-                <input id="user_email" name="user_email" v-model="user_email" type="text" placeholder="กรอกอีเมล" required>
-                      <!-- {{this.user.data.name}} -->
-                    </div>
-                    <div class="col-sm-3 text-secondary">
-                      <label for="">เบอร์โทรศัพท์</label>
-                <input id="user_phone" name="user_phone" v-model="user_phone" type="text" placeholder="กรอกเบอร์โทรศัพท์" required>
-                      <!-- {{this.user.data.name}} -->
-                    </div>
+                   
                   </div>
                   <hr>
                   <hr>
+                   <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">หมายเหตุ</h6>
+                    </div>
+                   
+                    <div class="col-sm-5 text-secondary">
+                        <label>หมายเหตุ</label>
+                <input id="sick_note" name="sick_note" v-model="sick_note" type="text" placeholder="หมายเหตุ" required>
+                      <!-- {{this.user.data.name}} -->
+                    </div>
+                  </div>
                   <!-- ------------------------------End Phone Sex Email-------------------------------------------------------- -->
                 
                   <div class="row text-center">
@@ -112,7 +107,7 @@ import '../assets/css/styleTable.css';
 
 
 export default {
-    name: 'EditMyData',
+    name: 'EditUserSick',
     props:['user'],
     components:{
         HeaderSickbed,
@@ -123,33 +118,25 @@ export default {
             status : '',
             getdata : '',
             tokenFalse: 'invalid token!',
-         
-            prefix_data: '',
-            sex_data: '',
-            user_username: '',
-            user_lastname: '',
-            user_firstname: '',
-            user_email: '',
-            user_passwords: '',
-            user_passwords_conf: '',
-            user_phone: '',
-            select_prefix: '',
-            select_sex: '',
-            prefix_test: [],
-            id: this.$route.params.user_username
+            sick_name : '',
+            sick_amount : '',
+            sick_note : '',
+            sick_id : '',
+            sick_data: '',
+            select_sick: '',
+            sit_id : '',
+            id: this.$route.params.sick_id
         }
     },
     methods:{
       updateDataUser : function(){
          axios
-        .post("http://localhost:3000/UpdateDataUser", {
-          user_username: this.user_username,
-          user_firstname: this.user_firstname,
-          user_lastname: this.user_lastname,
-          user_phone : this.user_phone,
-          user_email: this.user_email,
-          prefix_id: this.select_prefix,
-          sex_id: this.select_sex,
+        .post("http://localhost:3000/Usickbed", {
+          sick_name: this.sick_name,
+          sick_amount: this.sick_amount,
+          sick_note: this.sick_note,
+          sit_id : this.select_sick,
+          sick_id : this.sick_id
         
         })
         .then((res) => {
@@ -168,41 +155,32 @@ export default {
         });
       },
       editDataUser : function(){
-          axios.get("http://localhost:3000/FetchDataUserOne/"+this.id).then((res) => {
- 
-        this.user_username = res.data.data.user_username
-        this.user_password = res.data.data.user_password
-        this.user_firstname = res.data.data.user_firstname
-        this.user_lastname = res.data.data.user_lastname
-        this.user_phone = res.data.data.user_phone
-        this.user_email = res.data.data.user_email
-        this.select_prefix = res.data.data.prefix_id
-        this.select_sex = res.data.data.sex_id
+          axios.get("http://localhost:3000/SickOne/"+this.id).then((res) => {
+              //console.log(res)
+              this.sick_name = res.data.data.sick_name;
+              this.sick_amount = res.data.data.sick_amount;
+              this.sick_note = res.data.data.sick_note;
+              this.sick_id = res.data.data.sick_id;
+             
+              this.select_sick = res.data.data.sit_id;
+              // console.log(this.select_sick)
+            
       });
       },
-    
-     
 
-       fetchPrefix : function(){
-          axios.get("http://localhost:3000/Prefix").then((response) =>{
-          this.prefix_test = []
-          this.prefix_test = response.data.data;
-      //    console.log(this.prefix_test);
-          })
-      },
-       fetchSex : function(){
-          axios.get("http://localhost:3000/Sex").then((response) =>{
+       fetchSick_status : function(){
+          axios.get("http://localhost:3000/fetchSickStatus").then((response) =>{
          // this.prefix_test = []
-          this.sex_data = response.data.data;
-          //console.log(this.prefix_test);
+          this.sick_data = response.data.data;
+         // console.log( this.sick_data );
           })
       },
       
     },
     async created(){
         this.editDataUser();
-        this.fetchSex();
-        this.fetchPrefix();
+        this.fetchSick_status();
+        // this.fetchPrefix();
     }
 
     

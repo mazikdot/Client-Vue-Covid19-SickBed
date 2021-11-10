@@ -16,6 +16,7 @@ import FormDonate from '../views/FormDonate.vue'
 import SickbedWant from '../views/SickbedWant.vue'
 import FormWant from '../views/FormWant.vue'
 import EditMyData from '../views/EditMyData.vue'
+import EditUserSick from '../views/EditUserSick.vue'
 const routes = [
   {
     path: '/',
@@ -26,6 +27,11 @@ const routes = [
     path: '/EditMyData',
     name: 'EditMyData',
     component: EditMyData
+  },
+  {
+    path: '/EditUserSick',
+    name: 'EditUserSick',
+    component: EditUserSick
   },
   {
     path: '/Myprofile',

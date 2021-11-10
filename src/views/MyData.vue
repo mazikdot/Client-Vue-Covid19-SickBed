@@ -107,13 +107,18 @@
                       </div>
                      <div>
                        <div  v-for="row in allData" :key="row.user_username">
+                          <!-- <button  v-if="State == true" class="btn btn-outline-primary btn-sm" >แก้ไขข้อมูล</button> -->
+                  <router-link   v-if="State == true" class="btn btn-outline-primary btn-sm" :to ="{name : 'EditUserSick',params:{sick_id : row.sick_id}}">แก้ไขข้อมูล</router-link>
+                          <button  v-if="State == true" v-on:click="deleteData(row.sick_id)" class="btn btn-outline-primary btn-sm" >ลบข้อมูลนี้</button>
                          <div v-if="State == true">
-                         <p>เลขที่ : {{row.sick_id}} : {{row.sick_name}}</p>
-                         <p></p>
+                         <p>เลขที่ : {{row.sick_id}} : {{row.sick_name}} </p>
+                         <p>   จำนวน {{row.sick_amount}} ตัว</p>
+                         <p>   หมายเหตุ : {{row.sick_note}}</p>
+                         <p  :class="[row.sit_id === 1 ? 'label label-danger' : '', '']"  class="label label-success" >สถานะ {{row.give_name}}</p>
                          <hr>
                          </div>
                        </div>
-                     <button class="btn btn-info" @click="SickbedUser()">คลิ๊กปุ่มนี้เพื่อดูข้อมูล</button>
+                     <button  v-if="State == false" class="btn btn-info" @click="SickbedUser()">คลิ๊กปุ่มนี้เพื่อดูข้อมูล</button>
                      <button v-if="State == true" class="btn btn-info" @click="Hidden()">ซ่อนข้อมูล</button>
                      </div>
                     </div>
@@ -123,7 +128,6 @@
             </div>
           </div>
         </div>
-        <button @click="SickbedUser()">asas</button>
     </div>
     <!-- <SectionSickbed/> -->
     <!-- <button @click="test()">asdsadsasa</button>
@@ -176,6 +180,26 @@ export default {
             //console.log(this.allData);
       });
       },
+     deleteData: function (sick_id) {
+        swal({
+                title: "คุณต้องการลบข้อมูลนี้ ใช่หรือไม่",
+                text: "หากลบแล้วไม่สามารถกู้คืนข้อมูลนี้ได้",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+             .then((willDelete) => {
+                  if (willDelete) {
+                    axios.post('http://localhost:3000/deleteSickbed',{
+                        sick_id: sick_id,
+                    }).then(res=>{
+                        swal(res.data.message,'Deleted Success fully!','success').then(function(){
+                            location.reload();
+                        });
+                    })     
+                  } 
+           });
+    },
       Hidden : function(){
         this.State = false;
       }
