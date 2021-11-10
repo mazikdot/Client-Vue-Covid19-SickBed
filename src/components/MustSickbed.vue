@@ -48,11 +48,11 @@
             v-for="row in allData"
             data-status="active"
           >
-            <td>{{ row.datawant }}</td>
+            <td>{{ row.sickw_name }}<br>จำนวน {{row.sickw_amount}} ตัว<br>หมายเหตุ : {{row.sickw_note}}</td>
             <!-- <td>{{row.give_name}}</td> -->
             <td class="btn-sm manage">{{ row.datebetween }}</td>
             <td class="btn-sm manage">{{ row.name }}</td>
-            <td class="btn-sm manage">{{ row.map }}</td>
+            <td class="btn-sm manage">จังหวัด : {{ row.province }}<br>อำเภอ : {{row.amphures}}<br>ตำบล : {{row.districts}}</td>
             <td>
               <span
                 :class="[row.give_id === 1 ? 'label label-danger' : '', '']"

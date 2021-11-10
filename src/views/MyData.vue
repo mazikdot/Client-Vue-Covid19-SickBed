@@ -80,64 +80,66 @@
                   <div class="card h-100">
                     <div class="card-body">
                       <h6>ข้อมูลเตียงที่ฉันต้องการ</h6>
-                      <small>Web Design</small>
-                      <div class="progress mb-3" style="height: 5px">
+
+                      <div class="progress mb-3" style="height: 5px"></div>
+                      <div>
                         <div
-                          class="progress-bar bg-primary"
-                          role="progressbar"
-                          style="width: 80%"
-                          aria-valuenow="80"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <small>Website Markup</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div
-                          class="progress-bar bg-primary"
-                          role="progressbar"
-                          style="width: 72%"
-                          aria-valuenow="72"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <small>One Page</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div
-                          class="progress-bar bg-primary"
-                          role="progressbar"
-                          style="width: 89%"
-                          aria-valuenow="89"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <small>Mobile Template</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div
-                          class="progress-bar bg-primary"
-                          role="progressbar"
-                          style="width: 55%"
-                          aria-valuenow="55"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <small>Backend API</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div
-                          class="progress-bar bg-primary"
-                          role="progressbar"
-                          style="width: 66%"
-                          aria-valuenow="66"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
+                          v-for="row in allDataSickwant"
+                          :key="row.user_username"
+                        >
+                          <!-- <button  v-if="State == true" class="btn btn-outline-primary btn-sm" >แก้ไขข้อมูล</button> -->
+                          <router-link
+                            v-if="StateSickWant == true"
+                            class="btn btn-outline-primary btn-sm"
+                            :to="{
+                              name: 'EditSickWant',
+                              params: { sickw_id: row.sickw_id },
+                            }"
+                            >แก้ไขข้อมูล</router-link
+                          >
+                          <button
+                            v-if="StateSickWant == true"
+                            v-on:click="deleteDataSickWant(row.sickw_id)"
+                            class="btn btn-outline-primary btn-sm"
+                          >
+                            ลบข้อมูลนี้
+                          </button>
+                          <div v-if="StateSickWant == true">
+                            <p>เตียงที่ฉันต้องการ : {{ row.sickw_name }}</p>
+                            <p>จำนวน {{ row.sickw_amount }} ตัว</p>
+                            <p>รายละเอียดอื่นๆ : {{ row.sickw_note }}</p>
+                            <p>วันที่ต้องการ : {{ row.datebetween }}</p>
+                            <p
+                              :class="[
+                                row.give_id === 1 ? 'label label-danger' : '',
+                                '',
+                              ]"
+                              class="label label-success"
+                            >
+                              สถานะ {{ row.give_name }}
+                            </p>
+                            <hr />
+                          </div>
+                        </div>
+                        <button
+                          v-if="StateSickWant == false"
+                          class="btn btn-info"
+                          @click="SickWantOne()"
+                        >
+                          คลิ๊กปุ่มนี้เพื่อดูข้อมูล
+                        </button>
+                        <button
+                          v-if="StateSickWant == true"
+                          class="btn btn-info"
+                          @click="HiddenStateSickwantOne()"
+                        >
+                          ซ่อนข้อมูล
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
+                <!-- ---------------------------------------------------End Data Sick Want-------------------------------------------------- -->
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
                     <div class="card-body">
@@ -240,7 +242,9 @@ export default {
       getdata: "",
       tokenFalse: "invalid token!",
       allData: "",
+      allDataSickwant: "",
       State: false,
+      StateSickWant: false,
     };
   },
   methods: {
@@ -252,6 +256,19 @@ export default {
         .get("http://localhost:3000/SickbedOne/" + this.user.data.user_username)
         .then((res) => {
           this.allData = res.data.data;
+          //console.log(this.allData);
+        });
+    },
+    SickWantOne: function() {
+      //this.getUsername = this.user.data.user_username;
+      //console.log(this.getUsername)
+      this.StateSickWant = true;
+      axios
+        .get(
+          "http://localhost:3000/SickWantOne/" + this.user.data.user_username
+        )
+        .then((res) => {
+          this.allDataSickwant = res.data.data;
           //console.log(this.allData);
         });
     },
@@ -278,8 +295,34 @@ export default {
         }
       });
     },
+    deleteDataSickWant: function(sickw_id) {
+      swal({
+        title: "คุณต้องการลบข้อมูลนี้ ใช่หรือไม่",
+        text: "หากลบแล้วไม่สามารถกู้คืนข้อมูลนี้ได้",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          axios
+            .post("http://localhost:3000/deleteSickWant", {
+              sickw_id: sickw_id,
+            })
+            .then((res) => {
+              swal(res.data.message, "Deleted Success fully!", "success").then(
+                function() {
+                  location.reload();
+                }
+              );
+            });
+        }
+      });
+    },
     Hidden: function() {
       this.State = false;
+    },
+    HiddenStateSickwantOne: function() {
+      this.StateSickWant = false;
     },
   },
   created: function() {

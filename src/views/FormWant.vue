@@ -57,73 +57,11 @@
                               />
                             </div>
                           </div>
-                          <div class="col m12">
-                            <div class="input-field col m3 s12">
-                              <h5 style="font-size: 16px;">
-                                พื้นที่ ที่ต้องการใช้เตียงผู้ป่วย
-                              </h5>
-                              <input
-                                id="village"
-                                name="village"
-                                v-model="village"
-                                type="text"
-                                placeholder="เลขที่ / หมู่ที่ "
-                                required
-                              />
-                            </div>
-                            <div class="input-field col m3 s12">
-                              <h5 style="font-size: 16px;">
-                                จังหวัดที่ต้องการใช้เตียง
-                              </h5>
-                              <select
-                                v-model="select_province"
-                                @change="fetchAmphures"
-                              >
-                                <option value="">เลือกจังหวัด</option>
-                                <option
-                                  :key="data.province_id"
-                                  v-for="data in province_data"
-                                  :value="data.province_id"
-                                  >{{ data.name_th }}</option
-                                >
-                              </select>
-                            </div>
-                            <div class="input-field col m3 s12">
-                              <h5 style="font-size: 16px;">
-                                อำเภอที่ต้องการใช้เตียง
-                              </h5>
-                              <select
-                                v-model="select_amphures"
-                                @change="fetchDistricts"
-                              >
-                                <option value="">เลือกอำเภอ</option>
-                                <option
-                                  :key="data.amphure_id"
-                                  v-for="data in amphures_data"
-                                  :value="data.amphure_id"
-                                  >{{ data.name_th }}</option
-                                >
-                              </select>
-                            </div>
-                            <div class="input-field col m3 s12">
-                              <h5 style="font-size: 16px;">
-                                ตำบลที่ต้องการใช้เตียง
-                              </h5>
-                              <select v-model="select_districts">
-                                <option value="">เลือกตำบล</option>
-                                <option
-                                  :key="data.districts_id"
-                                  v-for="data in districts_data"
-                                  :value="data.districts_id"
-                                  >{{ data.name_th }}</option
-                                >
-                              </select>
-                            </div>
-                          </div>
+                         
                           <div class="col m12">
                             <div class="input-field col m5 s12">
                               <h5 style="font-size: 16px;">
-                                หมายเหตุอื่น ๆ ตามที่ต้องการระบุ
+                               รายละเอียดอื่น ๆ 
                               </h5>
 
                               <input
