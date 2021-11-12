@@ -139,10 +139,12 @@
                               @click="submitData()"
                             />
                             <!-- <a href="login.php" style="color:FFFFFF;" class="waves-effect waves-light btn indigo2 m-b-xs">เข้าสู่ระบบ</a> -->
+                           <h4>test</h4>
                           </div>
                         </div>
                       </div>
                     </div>
+                  
                   </section>
                 </div>
               </form>

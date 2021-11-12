@@ -2,14 +2,17 @@
   <div v-if="user">
     <HeaderSickbed />
     <div>
-      <main class="mn-inner">
-        <div class="row" id="card-input">
-          <div class="col s10 m10 l10">
+      <main class="mn-inner text-center" style="margin-top:25px;">
+        <div class="row text-center">
+          
+         
+          <!-- ------------------------ End ---------------------------------- -->
+          <div class="col-sm-6">
             <div class="card">
               <div class="card-content">
-                <h4 class="text-center">
-                  สรุปสถานการณ์เตียงผู้ป่วย Covid - 19
-                </h4>
+                <h5 class="text-center">
+                  สรุปสถานการณ์ผู้ค้นหาเตียงในระบบ
+                </h5>
               </div>
               <div class="row gutters-sm">
                 <p class="text-center " style="font-size:16px;">
@@ -22,52 +25,87 @@
                     class="progress mb-3"
                     style="height: 5px; background-color:#00FF00;"
                   ></div>
-                  <div style="">
-                    จำนวนผู้ใช้ที่ได้รับเตียงผู้ป่วยในการรักษา Covid - 19
-                    <!-- <h5 class="text-center">จำนวน 40 คน</h5> -->
+                  <div style="" class="text-center">
+                 <p>   จำนวนผู้ใช้ที่ได้รับเตียงผู้ป่วยในการรักษา Covid - 19</p>
+                    <h5 class="text-center"></h5>
+                    <div class="box box1">
+                  <h3>{{this.dataSickbedWant}} คน</h3>
                   </div>
                 </div>
-                <!-- ----------------------------------------------------------------------------------------------------- -->
-                <div class="col-sm-6 mb-3">
-                  <h6>ยังไม่ได้รับเตียง</h6>
 
+                </div>
+                <div class="col-sm-6">
+                  <h6>ยังไม่ได้รับเตียง</h6>
                   <div
                     class="progress mb-3"
-                    style="height: 5px; background-color:red;"
+                    style="height: 5px; background-color:#FF2525;"
                   ></div>
+                  <div style="" class="text-center">
+                 <p>   จำนวนผู้ใช้ที่ยังไม่ได้รับเตียงผู้ป่วยในการรักษา Covid - 19</p>
+                    <h5 class="text-center"></h5>
+                    <div class="box box5">
+                  <h3>{{this.dataNoSickbedWant}} คน</h3>
+                  </div>
                 </div>
-                <!-- ------------------------------------------------------------ -->
-                <hr />
+
+                </div>
+               
+                
+               
+              </div>
+              
+            
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-content">
+                <h5 class="text-center">
+                  สรุปสถานการณ์ผู้บริจาคเตียง
+                </h5>
               </div>
               <div class="row gutters-sm">
-                <p
-                  class="text-center "
-                  style="font-size:16px; margin-top:30px;"
-                >
-                  ข้อมูลเตียงผู้บริจาคที่ยังว่าง และถูกใช้งานไปแล้วภายในระบบ
+                <p class="text-center " style="font-size:16px;">
+                  จำนวนเตียงที่ยังว่างให้ใช้งาน และใช้งานไปแล้ว
                 </p>
                 <div class="col-sm-6 mb-3">
-                  <h6>เตียงที่ยังว่างในระบบ</h6>
+                  <h6>เตียงว่าง</h6>
 
                   <div
                     class="progress mb-3"
                     style="height: 5px; background-color:#00FF00;"
                   ></div>
-                  <div>จำนวนผู้ใช้ที่ยังไม่ได้รับเตียง</div>
+                  <div style="" class="text-center">
+                 <p>   จำนวนเตียงที่ยังว่างในระบบซึ่งสามารถเลือกใช้งานได้จากหน้าค้นหาเตียง</p>
+                    <h5 class="text-center"></h5>
+                    <div class="box box7">
+                  <h3>{{this.dataCountfreebed}} เตียง</h3>
+                  </div>
                 </div>
-                <!-- ----------------------------------------------------------------------------------------------------- -->
+
+                </div>
                 <div class="col-sm-6 mb-3">
-                  <h6>เตียงที่ถูกใช้งานในระบบ</h6>
+                  <h6>เตียงไม่ว่าง</h6>
 
                   <div
                     class="progress mb-3"
-                    style="height: 5px; background-color:red;"
+                    style="height: 5px; background-color:#FF2525;"
                   ></div>
+                  <div style="" class="text-center">
+                 <p>จำนวนเตียงที่ถูกใช้อยู่ในขณะนี้</p>
+                    <h5 class="text-center"></h5>
+                    <div class="box box3">
+                  <h3>{{this.dataCountNofreebed}} เตียง</h3>
+                  </div>
                 </div>
-                <!-- ------------------------------------------------------------ -->
+
+                </div>
+               
               </div>
+            
             </div>
           </div>
+          
         </div>
       </main>
     </div>
@@ -78,7 +116,7 @@
 </template>
 
 <script>
-import "../assets/css/adminLte.css";
+// import "../assets/css/adminLte.css";
 import "../assets/css/bootstrap.min.css";
 import "../assets/css/style.css";
 import "../assets/css/font-awesome.css";
@@ -95,13 +133,45 @@ export default {
   data() {
     return {
       messageToken: "Invalid Token",
+      dataCountfreebed : '',
+      dataCountNofreebed : '',
+      dataSickbedWant : '',
+      dataNoSickbedWant : ''
     };
   },
+  methods:{
+    fetch_CountFreebed: function() {
+      axios.get("http://localhost:3000/Count_freebed").then((response) => {
+        this.dataCountfreebed = response.data.data[0].count_freebed
+      });
+    },
+    fetch_NoCountFreebed: function() {
+      axios.get("http://localhost:3000/Count_Nofreebed").then((response) => {
+        this.dataCountNofreebed = response.data.data[0].count_nofreebed
+      });
+    },
+    fetch_SickbedWant: function() {
+      axios.get("http://localhost:3000/Count_Sickwant").then((response) => {
+        this.dataSickbedWant = response.data.data[0].sickbed_want
+      });
+    },
+    fetch_NoSickbedWant: function() {
+      axios.get("http://localhost:3000/Count_NoSickwant").then((response) => {
+        this.dataNoSickbedWant = response.data.data[0].Nosickbed_want
+      });
+    }
+  },
+  created(){
+    this.fetch_CountFreebed();
+    this.fetch_NoCountFreebed();
+    this.fetch_SickbedWant();
+    this.fetch_NoSickbedWant();
+  }
 };
 </script>
 
 <style scoped>
-@import "/assets/css/adminLte.css";
+/* @import "/assets/css/adminLte.css"; */
 @import "/assets/css/bootstrap.min.css";
 @import "/assets/css/jquery.fancybox.css";
 @import "/assets/css/style.css";
@@ -109,3 +179,4 @@ export default {
 @import "/assets/css/animate.css";
 @import "/assets/css/styleTable.css";
 </style>
+<style src="./../assets/css/adminLte.css" scoped></style>

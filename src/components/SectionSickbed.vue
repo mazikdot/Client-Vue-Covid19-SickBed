@@ -28,6 +28,7 @@
           </div>
         </div>
       </div>
+     
       <!-- <%= getdata %> -->
       <table v-cloak class="table table-striped table-hover" id="userTable">
         <thead v-cloak>
