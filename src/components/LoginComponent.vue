@@ -6,7 +6,7 @@
   >
     <div
       class="container_login"
-      v-bind:style="{ 'margin-top': ' 3%', 'margin-bottom': '3%' }"
+      v-bind:style="{ 'margin-top': ' 3%', 'margin-bottom': '7%' }"
     >
       <div v-bind:style="{ 'text-align': ' center' }">
         <img
@@ -82,7 +82,14 @@ export default {
       //  console.log(response.data.token)
       if (response.data.token) {
         // this.$router.push('Sickbed');
-        window.location.assign("Sickbed");
+        if(response.data.user.roles_id == 1){
+          window.location.assign("Sickbed");
+        }
+        else
+        {
+          window.location.assign("Admin");
+        }
+       
       } else {
         swal("โปรดลองอีกครั้ง", "บัญชีผู้ใช้หรือรหัสผ่านของท่านผิด", "error");
       }

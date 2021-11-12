@@ -205,7 +205,7 @@ export default {
                 "บริจาคเตียงผู้ป่วยเรียบร้อยแล้ว",
                 "success"
               );
-              await this.$router.push("Sickbed");
+              await this.$router.push("SickbedWant");
             };
             alert();
           }

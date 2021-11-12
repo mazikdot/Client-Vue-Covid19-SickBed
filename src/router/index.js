@@ -20,6 +20,9 @@ import EditUserSick from '../views/EditUserSick.vue'
 import EditSickWant from '../views/EditSickWant.vue'
 import SitulationBed from '../views/SitulationBed.vue'
 import Covid from '../views/Covid.vue'
+import Admin from '../views/Admin.vue'
+import AdminSickwant from '../views/AdminSickwant.vue'
+import AdminMageUser from '../views/AdminMageUser.vue'
 const routes = [
   {
     path: '/',
@@ -30,6 +33,21 @@ const routes = [
     path: '/Covid-19-Thailand',
     name: 'Covid',
     component: Covid
+  },
+  {
+    path: '/AdminMageUser',
+    name: 'AdminMageUser',
+    component: AdminMageUser
+  },
+  {
+    path: '/AdminSickwant',
+    name: 'AdminSickwant',
+    component: AdminSickwant
+  },
+  {
+    path: '/Admin',
+    name: 'Admin',
+    component: Admin
   },
   {
     path: '/EditMyData',

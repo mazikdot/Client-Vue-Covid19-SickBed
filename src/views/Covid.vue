@@ -1,7 +1,14 @@
 <template>
-  <div v-if="user">
+  <div v-if="!user">
+    {{messageToken}}
+  </div>
+  <div v-else-if="this.user.data.roles_id == 1">
     <HeaderSickbed />
-    <div>
+ </div>
+ <div v-else-if="this.user.data.roles_id == 2">
+    <HeaderAdmin/>
+ </div>
+    <div v-if="user">
       <main class="mn-inner text-center" style="margin-top:25px;">
         <div class="row text-center">
           
@@ -106,10 +113,7 @@
         </div>
       </main>
     </div>
-  </div>
-  <div v-else>
-    {{ messageToken }}
-  </div>
+  
 </template>
 
 <script>
@@ -121,11 +125,13 @@ import "../assets/css/jquery.fancybox.css";
 import "../assets/css/animate.css";
 import "../assets/css/styleTable.css";
 import HeaderSickbed from "../components/HeaderSickbed";
+import HeaderAdmin from "../components/HeaderAdmin";
 export default {
   name: "Covid",
   props: ["user"],
   components: {
     HeaderSickbed,
+    HeaderAdmin
   },
   data() {
     return {
