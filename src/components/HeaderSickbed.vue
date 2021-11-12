@@ -42,7 +42,7 @@
                 >
               </li>
               <li>
-                <router-link class="scroll-link" to="/SitulationBed"
+                <router-link class="scroll-link" to="/Covid-19-Thailand"
                   >ยอดการติด Covid-19</router-link
                 >
               </li>

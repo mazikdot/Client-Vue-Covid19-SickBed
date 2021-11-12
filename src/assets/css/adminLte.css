@@ -3,11 +3,12 @@
   }
   .box{
     width:80%;
-    height:200px;
+    height:240px;
     float:left;
     background-color:white; 
-    margin:25px 15px;
+    margin:20px 15px;
     border-radius:5px;
+    padding-bottom: 40px;
   }
   .box h3{
     font-family: 'Didact Gothic', sans-serif;
@@ -20,7 +21,7 @@
     background-color: #EBA39E;
   }
   .box2{
-    background-color: #EDE89A;
+    background-color: #f3c90d;
   }
   .box3{
     background-color: #9EEBA1;

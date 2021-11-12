@@ -19,11 +19,17 @@ import EditMyData from '../views/EditMyData.vue'
 import EditUserSick from '../views/EditUserSick.vue'
 import EditSickWant from '../views/EditSickWant.vue'
 import SitulationBed from '../views/SitulationBed.vue'
+import Covid from '../views/Covid.vue'
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/Covid-19-Thailand',
+    name: 'Covid',
+    component: Covid
   },
   {
     path: '/EditMyData',

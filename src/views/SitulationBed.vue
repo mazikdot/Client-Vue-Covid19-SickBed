@@ -76,7 +76,7 @@
                     style="height: 5px; background-color:#00FF00;"
                   ></div>
                   <div style="" class="text-center">
-                 <p>   จำนวนเตียงที่ยังว่างในระบบซึ่งสามารถเลือกใช้งานได้จากหน้าค้นหาเตียง</p>
+                 <p>   จำนวนเตียงที่ยังว่างในระบบ</p>
                     <h5 class="text-center"></h5>
                     <div class="box box7">
                   <h3>{{this.dataCountfreebed}} เตียง</h3>

@@ -6,9 +6,9 @@
           <div class="col-sm-9">
             <h2
               class="fontsizebed"
-              style="margin-left:50% ; font-size:20px;  color:black;"
+              style="margin-left:50% ; font-size:20px; margin-top:10px; color:black;"
             >
-              <b></b> <b>รายชื่อผู้ต้องการเตียงรักษา<br /> </b>
+              <b style="color:white;">รายชื่อผู้ป่วยต้องการเตียงรักษา</b>
             </h2>
             <div>
               <router-link

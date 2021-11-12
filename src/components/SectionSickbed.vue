@@ -6,17 +6,12 @@
           <div class="col-sm-9">
             <h2
               class="fontsizebed"
-              style="margin-left:200px ; font-size:20px;  color:black;"
+              style="margin-left:200px ; font-size:20px; margin-top:10px; color:black;"
             >
-              <b></b> <b>ค้นหาเตียงผู้ป่วย <br /> </b>
+              <b style="color:white;">ค้นหาเตียงผู้ป่วย</b>
             </h2>
 
-            <p
-              style="padding-left: 200px; margin-top: 10px;"
-              class="text-center"
-            >
-              เตียงผู้ป่วยทั้งหมดที่ผู้ใช้ร่วมกันบริจาค
-            </p>
+           
           </div>
           <div class="col-sm-3">
             <div

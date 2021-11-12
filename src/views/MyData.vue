@@ -10,7 +10,7 @@
             <div class="col-md-12">
               <div class="card mb-3" style="padding-top: 25px;">
                 <div class="text-center">
-                  <h1>ข้อมูลของฉัน</h1>
+                  <h4>ข้อมูลของฉัน</h4>
                   <img
                     src="@/assets/img/logo.png"
                     alt="center"
@@ -89,6 +89,7 @@
                         >
                           <!-- <button  v-if="State == true" class="btn btn-outline-primary btn-sm" >แก้ไขข้อมูล</button> -->
                           <router-link
+                          style="background-color:#7F6CFC;"
                             v-if="StateSickWant == true"
                             class="btn btn-outline-primary btn-sm"
                             :to="{
@@ -100,7 +101,8 @@
                           <button
                             v-if="StateSickWant == true"
                             v-on:click="deleteDataSickWant(row.sickw_id)"
-                            class="btn btn-outline-primary btn-sm"
+                            style="background-color:#FF4A4A;"
+                            class="btn btn-outline-primary btn-sm "
                           >
                             ลบข้อมูลนี้
                           </button>
@@ -151,6 +153,7 @@
                           <!-- <button  v-if="State == true" class="btn btn-outline-primary btn-sm" >แก้ไขข้อมูล</button> -->
                           <router-link
                             v-if="State == true"
+                            style="background-color:#7F6CFC;"
                             class="btn btn-outline-primary btn-sm"
                             :to="{
                               name: 'EditUserSick',
@@ -158,13 +161,13 @@
                             }"
                             >แก้ไขข้อมูล</router-link
                           >
-                          <button
+                          <button style="background-color:#FF4A4A;"
                             v-if="State == true"
                             v-on:click="deleteData(row.sick_id)"
                             class="btn btn-outline-primary btn-sm"
                           >
                             ลบข้อมูลนี้
-                          </button>
+                          </button >
                           <div v-if="State == true">
                             <p>
                               เลขที่ : {{ row.sick_id }} : {{ row.sick_name }}
