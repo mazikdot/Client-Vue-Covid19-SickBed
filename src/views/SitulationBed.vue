@@ -152,6 +152,8 @@ export default {
     fetch_CountFreebed: function() {
       axios.get("http://localhost:3000/Count_freebed").then((response) => {
         this.dataCountfreebed = response.data.data[0].count_freebed
+        // var n = 34523453.345;
+        // console.log(n.toLocaleString());
       });
     },
     fetch_NoCountFreebed: function() {

@@ -35,7 +35,7 @@
                
                     <h5 class="text-center"></h5>
                     <div class="box box2">
-                  <h3>ติดเชื้อเพิ่มวันนี้ <br>{{this.new_case}} ราย</h3>
+                  <h3>ติดเชื้อเพิ่มวันนี้ <br>{{this.new_case.toLocaleString()}} ราย</h3>
                   </div>
                 </div>
 
@@ -47,7 +47,7 @@
                 
                     <h5 class="text-center"></h5>
                     <div class="box box2">
-                  <h3>ติดเชื้อรวม <br>{{this.total_case}} ราย</h3>
+                  <h3>ติดเชื้อรวม <br>{{this.total_case.toLocaleString()}} ราย</h3>
                   </div>
                 </div>
 
@@ -59,7 +59,7 @@
                 
                     <h5 class="text-center"></h5>
                     <div class="box box1">
-                  <h3>เสียชีวิตวันนี้<br> {{this.new_death}} ราย</h3>
+                  <h3>เสียชีวิตวันนี้<br> {{this.new_death.toLocaleString()}} ราย</h3>
                   </div>
                 </div>
 
@@ -72,7 +72,7 @@
               
                     <h5 class="text-center"></h5>
                     <div class="box box1">
-                  <h3>เสียชีวิตรวม  <br> {{this.total_death}} ราย</h3>
+                  <h3>เสียชีวิตรวม  <br> {{this.total_death.toLocaleString()}} ราย</h3>
                   </div>
                 </div>
 
@@ -83,7 +83,7 @@
                
                     <h5 class="text-center"></h5>
                     <div class="box box5">
-                  <h3>รักษาหายวันนี้ <br> {{this.new_recovered}} ราย</h3>
+                  <h3>รักษาหายวันนี้ <br> {{this.new_recovered.toLocaleString()}} ราย</h3>
                   </div>
                 </div>
 
@@ -95,7 +95,7 @@
               
                     <h5 class="text-center"></h5>
                     <div class="box box5">
-                  <h3>รักษาหายรวม <br> {{this.total_recovered}} ราย</h3>
+                  <h3>รักษาหายรวม <br> {{this.total_recovered.toLocaleString()}} ราย</h3>
                   </div>
                 </div>
 
@@ -156,6 +156,8 @@ export default {
        this.total_death = response.data[0].total_death
        this.new_recovered = response.data[0].new_recovered
        this.total_recovered = response.data[0].total_recovered
+//        var n = 34523453.345;
+// console.log(n.toLocaleString());
       });
     }
   },
